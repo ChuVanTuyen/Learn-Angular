@@ -1,0 +1,30 @@
+<div class="bt1">
+  <p style="font-weight: bolder;">Bài Tập 1 <br>
+    Danh sách các học sinh
+  </p>
+
+  <div>
+    <span>Giới tính: </span>
+    <button [class.gender]="checkGender" (click)="changeGender(true)">
+      Nam
+    </button>
+    <button [class.gender]="!checkGender" (click)="changeGender(false)">
+      Nữ
+    </button>
+  </div>
+
+  <table>
+    <tr>
+      <th>STT</th>
+      <th>Họ Tên</th>
+      <th>Quê quán</th>
+      <th>Giới tính</th>
+    </tr>
+    <tr *ngFor="let user of list" [class.gender]="(user.gender === 'nam') === checkGender">
+      <td>{{user.id}}</td>
+      <td>{{user.fullname}}</td>
+      <td>{{user.homeTown}}</td>
+      <td>{{user.gender}}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,31 @@
+.bt1{
+    padding-left: 50px;
+}
+
+table, th, td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+th, td{
+    padding: 10px;
+}
+
+table{
+    margin-top: 20px;
+    border-spacing: 0px;
+    width: 50%;
+}
+
+button{
+    width: 80px;
+    margin-left: 20px;
+    border-radius: 0;
+    outline: none;
+    border: 1px solid black;
+    padding: 3px 0;
+}
+
+.gender{
+    background-color: rgb(74, 134, 232);
+}

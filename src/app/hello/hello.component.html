@@ -1,0 +1,23 @@
+<h2>Component Hello</h2>
+<!-- <p>hello {{person.name}}, năm nay {{person.age}} tuổi</p>
+
+<div *ngIf="person.age >= 20">{{person.name}} đã đủ tuổi lấy vợ</div>
+
+<div *ngIf="person.age < 20">{{person.name}} chưa đủ tuổi lấy vợ</div>
+
+<button (click)="increasePersonAge()">Tăng</button>
+<button (click)="reducePersonAge()">giảm</button> -->
+
+<!-- <ul *ngFor="let user of list; index as idx; count as length; first as isF; last as isL; even as isE; odd as isO">
+    <li>
+        <p>{{user.name}}-{{user.age}}-{{idx}}-{{length}}-{{isF}}-{{isL}}-{{isE}}-{{isO}}</p>
+    </li>
+</ul> -->
+
+<form (submit)="onSubmit(form)" #form="ngForm">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John" ngModel><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form>
