@@ -1,31 +1,54 @@
 .bt1{
     padding-left: 50px;
-}
-
-table, th, td{
-    border: 1px solid black;
-    text-align: center;
-}
-
-th, td{
-    padding: 10px;
-}
-
-table{
-    margin-top: 20px;
-    border-spacing: 0px;
-    width: 50%;
-}
-
-button{
-    width: 80px;
-    margin-left: 20px;
-    border-radius: 0;
-    outline: none;
-    border: 1px solid black;
-    padding: 3px 0;
-}
-
-.gender{
-    background-color: rgb(74, 134, 232);
+    button{
+        width: 80px;
+        border-radius: 0;
+        outline: none;
+        border: 1px solid black;
+        padding: 3px 0;
+    }
+    button + button{
+        margin-left: 20px;
+    }
+    .btn-add{
+        margin-top: 20px;
+        width: auto;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        padding: 8px 12px;
+        background-color: #40a73f;
+        color: white;
+    }
+    table, th, td{
+        border: 1px solid black;
+        text-align: center;
+    }
+    
+    th, td{
+        padding: 10px;
+    }
+    
+    table{
+        margin-top: 20px;
+        border-spacing: 0px;
+        width: 50%;
+    }
+    
+    .gender{
+        background-color: rgb(74, 134, 232);
+        color: white;
+    }
+    
+    .modal{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color:  rgba(0,0,0,0.5);
+    }
+    .update:hover{
+        cursor: pointer;
+    }
 }

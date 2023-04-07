@@ -19,12 +19,19 @@
       <th>Họ Tên</th>
       <th>Quê quán</th>
       <th>Giới tính</th>
+      <th>sửa</th>
     </tr>
-    <tr *ngFor="let user of list" [class.gender]="(user.gender === 'nam') === checkGender">
-      <td>{{user.id}}</td>
+    <tr *ngFor="let user of users; index as idx" [class.gender]="(user.gender === 'nam') === checkGender">
+      <td>{{idx+1}}</td>
       <td>{{user.fullname}}</td>
       <td>{{user.homeTown}}</td>
       <td>{{user.gender}}</td>
+      <td class="update"> sửa </td>
     </tr>
   </table>
+  <button class="btn-add" (click)="handleShowModal()">Thêm</button>
+  <div *ngIf="isShowModal" class="modal">
+    <app-bt2-modal [checkName]="checkName" (clickClose)="handleCloseModal()"
+      (returnUser)="addUser($event)"></app-bt2-modal>
+  </div>
 </div>

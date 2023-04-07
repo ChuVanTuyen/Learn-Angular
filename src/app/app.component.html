@@ -1,2 +1,30 @@
+<!-- <p>{{message}}</p>
+<button (click)="changeParent()">Change parent</button>
+<app-hello [message]="message" (buttonClick)="onButtonClick($event)"></app-hello> -->
+<app-bt1></app-bt1>
+<!-- 
 <app-hello></app-hello>
-<!-- <app-bt1></app-bt1> -->
+<app-hello></app-hello>
+<ng-template>
+    <app-hello></app-hello>
+</ng-template>
+<button (click)="onClick()">Parent Change</button> -->
+<!-- 
+<div class="card">
+    <div class="card-header">
+        You have selected
+        <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
+    </div>
+    <div class="card-body">
+        There are <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container> was
+        selected.
+    </div>
+    <div class="card-footer">
+        You have selected
+        <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
+    </div>
+</div>
+
+<ng-template #counterTmpl>
+    <span class="badge badge-primary">{{ counter }}</span> items
+</ng-template> -->

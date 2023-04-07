@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Bt2ModalComponent } from '../bt2-modal/bt2-modal.component';
 
 @Component({
   selector: 'app-hello',
@@ -16,11 +18,25 @@ export class HelloComponent implements OnInit {
 
   // @Input() list: any;
 
+  // listUser: any = [];
+  // clickMessage: any;
   ngOnInit(): void {
     console.log('hello');
   }
 
-  onSubmit(form: any): void {
-    console.log(form);
+  // onSubmit(formValue: any): void {
+  //   // this.listUser.push(formValue);
+  //   console.log(formValue);
+  // }
+  // @Input() message: any;
+  // @Output() buttonClick = new EventEmitter<string>();
+  // changeMessage(): void {
+  //   this.message = "message has been changed";
+  //   this.buttonClick.emit(this.message);
+  // }
+
+  message = "hello xin chào.";
+  onClick(): void {
+    this.message = "Change by child";
   }
 }

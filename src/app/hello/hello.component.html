@@ -14,10 +14,24 @@
     </li>
 </ul> -->
 
-<form (submit)="onSubmit(form)" #form="ngForm">
+<!-- <form (ngSubmit)="onSubmit(form)" #form="ngForm">
   <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John" ngModel><br>
+  <input type="text" id="fname" name="fisrtName" ngModel value="John"><br>
   <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="text" id="lname" name="lastName" ngModel value="Doe"><br><br>
+  <div ngModelGroup="infor">
+    <label for="age">Age:</label><br>
+    <input type="text" id="age" name="age" ngModel value="20"><br>
+    <label for="homeTown">Home Town:</label><br>
+    <input type="text" id="homeTown" name="homeTown" ngModel value="Bắc Giang"><br>
+  </div>
   <input type="submit" value="Submit">
-</form>
+
+</form> -->
+
+<!-- <h4>{{message}}</h4>
+<button type="button" (click)="changeMessage()">Change message</button> -->
+
+<p>{{message}}</p>
+
+<button (click)="onClick()">Child Change</button>
