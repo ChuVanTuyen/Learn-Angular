@@ -1,29 +1,30 @@
 <div class="bt2">
-	<form class="bt2-form" #form="ngForm">
-		<div>
-			<label for="fullName">Họ và Tên:</label><br>
-			<span *ngIf="checkName" style="color: red;">Tên bạn nhập đã có trên hệ thống. Vui lòng nhập lại!</span>
-			<span *ngIf="checkNothingName" style="color: red;">Vui lòng nhập đầy đủ tên!</span>
-			<input type="text" id="fullName" name="fullName" [(ngModel)]="fullName" (input)="onChangeInput()"
-				placeholder="Nguyễn Văn A">
-		</div>
-		<div>
-			<label for="homeTown">Quê quán:</label><br>
-			<span *ngIf="checkNotingHomeTown" style="color: red;">Vui lòng nhập trường này!</span>
-			<input type="text" id="homeTown" name="homeTown" [(ngModel)]="homeTown" (input)="onChangeInput()"
-				placeholder="Hà Nội">
-		</div>
-		<div>
-			<label for="gender">Giới tính: </label>
-			<select name="gender" id="gender" [(ngModel)]="gender" value="gender">
-				<option value="nam">Nam</option>
-				<option value="nữ">Nữ</option>
-			</select>
-		</div>
-		<div class="btn">
-			<button class="btn-primary" (click)="onSubmit()"> Lưu </button>
-			<button class="btn-danger" (click)="handleClickClose()"> Đóng </button>
-		</div>
-	</form>
-	<button class="cancel" (click)="handleClickClose()"> &#10006; </button>
+  <form class="bt2-form" #form="ngForm">
+    <div>
+      <label for="fullName">Họ và Tên:</label><br>
+      <span *ngIf="checkName" style="color: red; font-size: 14px;">Tên bạn nhập đã có trên hệ thống. Vui lòng nhập
+        lại!</span>
+      <span *ngIf="checkNothingName" style="color: red; font-size: 14px;">Vui lòng nhập đầy đủ tên!</span>
+      <input type="text" id="fullName" name="fullName" [(ngModel)]="fullName" (input)="onChangeInput()"
+        placeholder="Nguyễn Văn A">
+    </div>
+    <div>
+      <label for="homeTown">Quê quán:</label><br>
+      <span *ngIf="checkNotingHomeTown" style="color: red; font-size: 14px;">Vui lòng nhập trường này!</span>
+      <input type="text" id="homeTown" name="homeTown" [(ngModel)]="homeTown" (input)="onChangeInput()"
+        placeholder="Hà Nội">
+    </div>
+    <div>
+      <label for="gender">Giới tính: </label>
+      <select name="gender" id="gender" [(ngModel)]="gender" value="gender">
+        <option value="nam">Nam</option>
+        <option value="nữ">Nữ</option>
+      </select>
+    </div>
+    <div class="btn">
+      <button class="btn-primary" (click)="onSubmit()"> Lưu </button>
+      <button class="btn-danger" (click)="handleClickClose()"> Đóng </button>
+    </div>
+  </form>
+  <button class="cancel" (click)="handleClickClose()"> &#10006; </button>
 </div>

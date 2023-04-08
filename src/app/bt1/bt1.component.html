@@ -26,12 +26,12 @@
       <td>{{user.fullname}}</td>
       <td>{{user.homeTown}}</td>
       <td>{{user.gender}}</td>
-      <td class="update"> sửa </td>
+      <td class="update" (click)="handleUpdate(user)"> sửa </td>
     </tr>
   </table>
   <button class="btn-add" (click)="handleShowModal()">Thêm</button>
   <div *ngIf="isShowModal" class="modal">
-    <app-bt2-modal [checkName]="checkName" (clickClose)="handleCloseModal()"
-      (returnUser)="addUser($event)"></app-bt2-modal>
+    <app-bt2-modal [checkName]="checkName" (clickClose)="handleCloseModal()" (returnUser)="addUser($event)"
+      [user]="user"></app-bt2-modal>
   </div>
 </div>

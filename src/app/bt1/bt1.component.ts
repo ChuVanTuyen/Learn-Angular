@@ -8,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class Bt1Component implements OnInit {
   // constructor(@Inject('serviceName') private isShowModal: any){}
   list: any;// lưu dữ liệu lấy từ localStorage
-  users: any;// lưu dữ liệu được chuyển sang mang của list
+  users: any;// lưu dữ liệu được chuyển sang mảng của list
   checkGender = true;// đổi màu theo giới tính
   isShowModal = false;// ẩn hiện modal form
   checkName = false;// nếu đúng sẽ hiện trường báo bị trùng tên
+  user = {// dùng để cập nhật dữ liệu
+    id: '',
+    fullname: '',
+    homeTown: '',
+    gender: 'nam'
+  };
 
   ngOnInit() {
-    console.log(localStorage.getItem('listUser'));
     if (localStorage.getItem('listUser')) {// kiểm tra xem có dữ liệu trên localStorage hay không
       this.list = localStorage.getItem('listUser');
     }
@@ -32,22 +37,50 @@ export class Bt1Component implements OnInit {
   }
 
   handleCloseModal(): void {// hàm đóng modal form
+    this.user.id = '';
+    this.user.fullname = '';
+    this.user.homeTown = '';
+    this.user.gender = 'nam';
+    this.checkGender = true;
     this.isShowModal = false;
+    this.checkName = false;
   }
 
   addUser(event: any): void {// hàm lưu dữ liệu được thêm vào local
     if (this.users) {
-      // kiểm tra có bị trùng tên hay không
-      let check = this.users.some((item: any) => item.fullname === event.fullname);
-      this.checkName = check;
-      if (check) {
+      let checkIndex = this.users.findIndex((item: any) => item.id === event.id);
+      if (checkIndex !== -1) {// nếu người dùng sửa thông tin
+        let newList = [...this.users];
+        newList.splice(checkIndex, 1);
+        console.log(newList);
+        this.checkName = newList.some((item: any) => item.fullname.trim() === event.fullname.trim());
+        if (this.checkName) {// kiểm tra xem tên mới sửa có trùng với tên khác hay không
+          return;
+        }
+        this.users.splice(checkIndex, 1, event);// sửa lại 
+        localStorage.setItem('listUser', JSON.stringify(this.users));// cập nhật lại local
         return;
+      } else {// nếu người dùng thêm mới
+        // kiểm tra có bị trùng tên hay không
+        this.checkName = this.users.some((item: any) => item.fullname.trim() === event.fullname.trim());
+        if (this.checkName) {
+          return;
+        }
+        else {
+          this.users = [...this.users, event];
+        }
       }
-      this.users = [...this.users, event];
     } else {
       this.users = [event];
     }
     localStorage.setItem('listUser', JSON.stringify(this.users));
-    console.log(localStorage.getItem('listUser'));
+  }
+
+  handleUpdate(data: any): void {
+    this.user.id = data.id;
+    this.user.fullname = data.fullname;
+    this.user.homeTown = data.homeTown;
+    this.user.gender = data.gender;
+    this.handleShowModal();
   }
 }
