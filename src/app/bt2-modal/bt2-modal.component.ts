@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, Input, ViewChild, OnInit } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
-import { Bt1Component } from '../bt1/bt1.component';
+import { User } from '../modules/User';
 
 @Component({
   selector: 'app-bt2-modal',
@@ -12,19 +12,14 @@ export class Bt2ModalComponent implements OnInit {
   @Input() checkName: any;// nhận kết quả trùng tên từ compnent cha
   checkNothingName = false;// kiểm tra tên rỗng
   checkNotingHomeTown = false;// kiểm tra quê rỗng
-  @Input() user: any;// nhận giá trị của hàng cần sửa trong table
+  @Input() user: any;// nhận giá trị của row cần sửa trong table
   @Output() returnUser = new EventEmitter<object>();//trả về dữ liệu khi người dùng submit
   @Output() clickClose = new EventEmitter<string>();//đóng modal 
-  gender = "nam";
-  fullName = '';
-  homeTown = '';
+  // gender = "nam";
+  // fullName = '';
+  // homeTown = '';
   ngOnInit(): void {
     console.log(this.user);
-    if (this.user) {
-      this.gender = this.user.gender;
-      this.fullName = this.user.fullname;
-      this.homeTown = this.user.homeTown;
-    }
   }
 
   handleClickClose(): void {//đóng modal 
@@ -32,31 +27,34 @@ export class Bt2ModalComponent implements OnInit {
   }
 
   onSubmit(): void {// khi người dùng submit form
-    if (!this.fullName.trim()) {// kiểm tra người dùng nhập tên hay chưa
+    if (!this.user.fullname.trim()) {// kiểm tra người dùng nhập tên hay chưa
       this.checkNothingName = true;// nếu chưa nhập thì = true
     }
-    if (!this.homeTown.trim()) {// kiểm tra người dùng nhập quê quán hay chưa
+    if (!this.user.homeTown.trim()) {// kiểm tra người dùng nhập quê quán hay chưa
       this.checkNotingHomeTown = true;
     }
     if (!this.checkNothingName && !this.checkNotingHomeTown) {
       if (this.user.id.trim()) {// nếu đã có id
         this.returnUser.emit({// gửi dữ liệu đã được sửa từ component form cho component table
           id: this.user.id,
-          fullname: this.fullName,
-          homeTown: this.homeTown,
-          gender: this.gender,
+          fullname: this.user.fullname,
+          homeTown: this.user.homeTown,
+          gender: this.user.gender,
         });
       } else {// chưa có id. Tức là nhập một hàng mới trong table 
-        this.returnUser.emit({// gửi dữ liệu từ component form cho component table
+        this.returnUser.emit({
           id: UUID.UUID(),
-          fullname: this.fullName,
-          homeTown: this.homeTown,
-          gender: this.gender,
-        });
+          fullname: this.user.fullname,
+          homeTown: this.user.homeTown,
+          gender: this.user.gender,
+        });// gửi dữ liệu từ component form cho component table
       }
-      this.gender = "nam";
-      this.fullName = '';
-      this.homeTown = '';
+      this.user = {
+        id: '',
+        fullname: '',
+        homeTown: '',
+        gender: 'nam',
+      }
     }
   }
   onChangeInput(): void {// người dùng nhập lại khi được báo lỗi

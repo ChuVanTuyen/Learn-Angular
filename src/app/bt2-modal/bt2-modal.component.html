@@ -5,18 +5,18 @@
       <span *ngIf="checkName" style="color: red; font-size: 14px;">Tên bạn nhập đã có trên hệ thống. Vui lòng nhập
         lại!</span>
       <span *ngIf="checkNothingName" style="color: red; font-size: 14px;">Vui lòng nhập đầy đủ tên!</span>
-      <input type="text" id="fullName" name="fullName" [(ngModel)]="fullName" (input)="onChangeInput()"
+      <input type="text" id="fullName" name="fullname" [(ngModel)]="user.fullname" (input)="onChangeInput()"
         placeholder="Nguyễn Văn A">
     </div>
     <div>
       <label for="homeTown">Quê quán:</label><br>
       <span *ngIf="checkNotingHomeTown" style="color: red; font-size: 14px;">Vui lòng nhập trường này!</span>
-      <input type="text" id="homeTown" name="homeTown" [(ngModel)]="homeTown" (input)="onChangeInput()"
+      <input type="text" id="homeTown" name="homeTown" [(ngModel)]="user.homeTown" (input)="onChangeInput()"
         placeholder="Hà Nội">
     </div>
     <div>
       <label for="gender">Giới tính: </label>
-      <select name="gender" id="gender" [(ngModel)]="gender" value="gender">
+      <select name="gender" id="gender" [(ngModel)]="user.gender">
         <option value="nam">Nam</option>
         <option value="nữ">Nữ</option>
       </select>
