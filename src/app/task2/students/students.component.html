@@ -1,0 +1,21 @@
+<div class="list-students">
+  <div class="list">
+    <div class="list-title">Danh sách HS</div>
+    <ul>
+      <li *ngFor="let student of students; index as idx">
+        <a [routerLink]="['student/', student.id, student.fullname, student.homeTown, student.gender]"
+          routerLinkActive="active">
+          {{idx+1}}.&nbsp;&nbsp;{{student.fullname}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="information">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- <li *ngFor="let student of students">
+  <a
+    [routerLink]="['task2/', student.id, student.fullname, student.homeTown, student.gender]">{{student.fullname}}</a>
+</li> -->

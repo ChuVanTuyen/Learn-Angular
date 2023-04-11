@@ -1,8 +1,6 @@
 import { Component, Output, EventEmitter, Input, ViewChild, OnInit } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
-import { User } from '../modules/User';
-
 @Component({
   selector: 'app-bt2-modal',
   templateUrl: './bt2-modal.component.html',
@@ -15,9 +13,6 @@ export class Bt2ModalComponent implements OnInit {
   @Input() user: any;// nhận giá trị của row cần sửa trong table
   @Output() returnUser = new EventEmitter<object>();//trả về dữ liệu khi người dùng submit
   @Output() clickClose = new EventEmitter<string>();//đóng modal 
-  // gender = "nam";
-  // fullName = '';
-  // homeTown = '';
   ngOnInit(): void {
     console.log(this.user);
   }
@@ -50,7 +45,7 @@ export class Bt2ModalComponent implements OnInit {
         });// gửi dữ liệu từ component form cho component table
       }
       this.user = {
-        id: '',
+        id: this.user.id,
         fullname: '',
         homeTown: '',
         gender: 'nam',

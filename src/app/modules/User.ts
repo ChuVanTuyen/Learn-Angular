@@ -1,6 +1,6 @@
 export interface User {
-    id: string,
-    fullname: string,
-    homeTown: string,
-    gender: string,
+    id: string | null,
+    fullname: string | null,
+    homeTown: string | null,
+    gender: string | null,
 }
