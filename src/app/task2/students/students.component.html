@@ -1,19 +1,24 @@
-<div class="list-students">
-  <div class="list">
-    <div class="list-title">Danh sách HS</div>
-    <ul>
-      <li *ngFor="let student of students; index as idx">
-        <a [routerLink]="['student/', student.id, student.fullname, student.homeTown, student.gender]"
-          routerLinkActive="active">
-          {{idx+1}}.&nbsp;&nbsp;{{student.fullname}}
-        </a>
-      </li>
-    </ul>
+<h2 *ngIf="students.length === 0;else list">
+  Hiện chưa có sinh viên nào!
+</h2>
+<ng-template #list>
+  <div class="list-students">
+    <div class="list">
+      <div class="list-title">Danh sách HS</div>
+      <ul>
+        <li *ngFor="let student of students; index as idx">
+          <a [routerLink]="['student/', student.id, student.fullname, student.homeTown, student.gender]"
+            routerLinkActive="active">
+            {{idx+1}}.&nbsp;&nbsp;{{student.fullname}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="information">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <div class="information">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+</ng-template>
 
 <!-- <li *ngFor="let student of students">
   <a

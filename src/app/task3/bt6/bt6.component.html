@@ -1,0 +1,92 @@
+<div class="schedule">
+  <div class="menu">
+    <button class="btn btn-light" (click)="isShowAdd()"> +Thêm </button>
+    <select class="btn btn-light" style="text-align: center;" (input)="onChangeFilter(selectFilter.value)"
+      #selectFilter>
+      <option>Tất cả</option>
+      <option>Chưa hoàn thành</option>
+      <option>Đã hoàn thành</option>
+    </select>
+  </div>
+  <div class="schedule-table">
+    <table>
+      <thead>
+        <tr>
+          <td>STT</td>
+          <td>Tên CV</td>
+          <td>Thời gian</td>
+          <td>Trạng thái</td>
+          <td>Sửa</td>
+          <td>Xóa</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of tasks; index as idx">
+          <!-- <p>{{filter}}</p> -->
+          <ng-container *ngIf="!t.update">
+            <ng-container *ngIf="t.status === filter || filter === 'Tất cả'">
+              <td>{{idx+1}}</td>
+              <td>{{t.name}}</td>
+              <td>{{t.time}}</td>
+              <td><input type="checkbox" [checked]="t.status === 'Đã hoàn thành'" (click)="changeStatus(t.id)" #status>
+              </td>
+              <td (click)="showUpdate(t.id)"> <fa-icon [icon]="icons.faWrench"></fa-icon> </td>
+              <td (click)="isDelete(t.id)"> <fa-icon [icon]="icons.faXmark"></fa-icon> </td>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="t.update">
+            <ng-container *ngIf="t.status === filter || filter === 'Tất cả'">
+              <td>{{tasks.length + 1}}</td>
+              <td> <input type="text" [(ngModel)]="task.name"></td>
+              <td><input type="time" [(ngModel)]="task.time"></td>
+              <td></td>
+              <td>
+                <button (click)="cancelUpdate()">Hủy</button>
+              </td>
+              <td>
+                <button (click)="confirmUpdate()">Xong</button>
+              </td>
+            </ng-container>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal" *ngIf="showAdd">
+    <div class="modal-background" (click)="isHideShowAdd()"></div>
+    <div class="modal-content">
+      <form class="bt2-form" #form="ngForm">
+        <div>
+          <label for="name">Tên công việc:</label><br>
+          <input type="text" id="name" name="name" [(ngModel)]="task.name">
+        </div>
+        <div>
+          <label for="time">Thời gian: </label><br>
+          <input type="time" id="time" name="time" [(ngModel)]="task.time">
+        </div>
+        <div>
+          <label for="status">Trạng thái: </label>
+          <select name="status" id="status" [(ngModel)]="task.status">
+            <option value="Chưa hoàn thành">Chưa hoàn thành</option>
+            <option value="Đã hoàn thành">Đã hoàn thành</option>
+          </select>
+        </div>
+        <div class="btn-right">
+          <button class="btn btn-light" (click)="isHideShowAdd()">Hủy</button>
+          <button class="btn btn-warning" (click)="addSubmit()">Thêm</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-background" (click)="isHideModal()"></div>
+    <div class="modal-content">
+      <span>Bạn có chắc chắn muốn xóa việc này?</span>
+      <div class="btn-right">
+        <button class="btn btn-light" (click)="isHideModal()">Không</button>
+        <button class="btn btn-warning" (click)="deleteTask()">Có</button>
+      </div>
+    </div>
+  </div>
+</div>

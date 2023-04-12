@@ -9,9 +9,13 @@
     margin-left: 20px;
     div{
         padding: 8px;
+        display: flex;
         :first-child{
             width: 110px;
+        }
+        *{
             display: inline-block;
+            height: 100%;
         }
     }
 }

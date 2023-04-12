@@ -1,7 +1,8 @@
 .list-students{
     display: flex;
     min-height: 300px;
-    width: 60%;
+    width: 50%;
+    min-width: 500px;
     margin: 50px auto;
     .list{
         border: 1px solid black;

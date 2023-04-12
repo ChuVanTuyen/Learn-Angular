@@ -20,6 +20,7 @@ export class Bt1Component implements OnInit, AfterViewInit {
     gender: 'nam'
   };
   ngOnInit() {
+    // localStorage.clear();
     if (localStorage.getItem('listUser')) {// kiểm tra xem có dữ liệu trên localStorage hay không
       this.list = localStorage.getItem('listUser');
     }

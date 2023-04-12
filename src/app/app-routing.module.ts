@@ -6,8 +6,13 @@ import { HelloComponent } from './hello/hello.component';
 import { StudentsComponent } from './task2/students/students.component';
 import { StudentComponent } from './task2/student/student.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { Bt6Component } from './task3/bt6/bt6.component';
 
 const routes: Routes = [
+  {
+    path: 'task3',
+    component: Bt6Component
+  },
   {
     path: 'bai-tap',
     component: Bt1Component,
