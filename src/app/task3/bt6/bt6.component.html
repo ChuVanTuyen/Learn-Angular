@@ -79,12 +79,12 @@
 
     </div>
   </div>
-  <div class="modal" *ngIf="showModal">
-    <div class="modal-background" (click)="isHideModal()"></div>
+  <div class="modal" *ngIf="showModalDelete">
+    <div class="modal-background" (click)="isHideModalDelete()"></div>
     <div class="modal-content">
       <span>Bạn có chắc chắn muốn xóa việc này?</span>
       <div class="btn-right">
-        <button class="btn btn-light" (click)="isHideModal()">Không</button>
+        <button class="btn btn-light" (click)="isHideModalDelete()">Không</button>
         <button class="btn btn-warning" (click)="deleteTask()">Có</button>
       </div>
     </div>
