@@ -1,35 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { Bt1Component } from './bt1/bt1.component';
 import { HelloComponent } from './hello/hello.component';
-import { StudentsComponent } from './task2/students/students.component';
-import { StudentComponent } from './task2/student/student.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { Bt6Component } from './task3/bt6/bt6.component';
 
 const routes: Routes = [
   {
-    path: 'task3',
-    component: Bt6Component
+    path: '',
+    component: HelloComponent,
   },
   {
-    path: 'bai-tap',
-    component: Bt1Component,
+    path: 'task1',
+    loadChildren: () => import('./task1/task1.module').then(m => m.Task1Module)
   },
   {
     path: 'task2',
-    component: StudentsComponent,
-    children: [
-      {
-        path: 'student/:id/:name/:home/:gender',
-        component: StudentComponent,
-      },
-    ]
+    loadChildren: () => import('./task2/task2.module').then(m => m.Task2Module)
   },
   {
-    path: '',
-    component: HelloComponent,
+    path: 'task3',
+    loadChildren: () => import('./task3/task3.module').then(m => m.Task3Module)
   },
   {
     path: '**',

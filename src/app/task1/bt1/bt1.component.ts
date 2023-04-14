@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { User } from '../modules/User';
+import { User } from 'src/app/modules/User';
 @Component({
   selector: 'app-bt1',
   templateUrl: './bt1.component.html',
