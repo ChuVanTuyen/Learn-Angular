@@ -1,0 +1,43 @@
+<!-- <div n>
+    <a href="">Flashcard</a>
+    <a href="">Fill</a>
+</div> -->
+<div *ngIf="items.length === 0;else group" class="item-none">
+  <h4>KHÔNG CÓ TỪ TRONG NHÓM</h4>
+</div>
+<ng-template #group>
+  <div class="items-btn">
+    <button>Flashcard</button>
+    <button>Fill</button>
+  </div>
+  <div class="list-item">
+    <div class="item" *ngFor="let item of items" (click)="toggleModal(true, item)">
+      <div class="item-type" [class.item-type--k]="item.type[0] === 'k'" [class.item-type--g]="item.type[0] === 'g'">
+        <div>{{item.type[0]}}</div>
+      </div>
+      <div class="item-name">{{item.name}}</div>
+    </div>
+
+    <div class="modal" *ngIf="checkModal">
+      <div class="modal-blur" (click)="toggleModal(false)"></div>
+      <div class="modal-content">
+        <div> {{item.name}}</div>
+        <ul>
+          <li><span>Ngữ âm</span>
+            <span>: {{item.phonetic}}</span>
+          </li>
+          <li><span>Nghĩa</span>
+            <span>: {{item.mean}}</span>
+          </li>
+          <li><span>Loại</span>
+            <span>: {{item.type}}</span>
+          </li>
+          <li><span>Ghi chú</span>
+            <span>: {{item.comment}}</span>
+          </li>
+        </ul>
+        <button (click)="toggleModal(false)">&#10006;</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

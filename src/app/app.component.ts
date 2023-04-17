@@ -1,14 +1,18 @@
-import { Component, Output, ViewChild, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
-import { HelloComponent } from './hello/hello.component';
+import { Component, Output, ViewChild, AfterViewInit, ViewChildren, QueryList, OnInit } from '@angular/core';
+import { Config, ConfigService } from './config/config.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
   title = 'learn_angular';
-  ngAfterViewInit(): void {
+  config: any;
+  ngOnInit(): void {
+
   }
-  counter = 1;
+  onClick() {
+    console.log(this.config);
+  }
 }

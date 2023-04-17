@@ -1,0 +1,30 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { Task4Component } from './task4.component';
+import { ItemsComponent } from './items/items.component';
+
+const task4Routes: Routes = [
+  {
+    path: '',
+    component: Task4Component,
+    children: [
+      {
+        path: ':id',
+        component: ItemsComponent,
+      }
+    ]
+  }
+];
+
+@NgModule({
+  declarations: [
+    Task4Component,
+    ItemsComponent,
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(task4Routes)
+  ],
+})
+export class Task4Module { }

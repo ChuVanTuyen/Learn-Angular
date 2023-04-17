@@ -1,0 +1,13 @@
+<div class="task4">
+  <div class="category">
+    <div class="category-title">Tên danh mục</div>
+    <ul class="category-list">
+      <li *ngFor="let cate of categories">
+        <a [routerLink]="['/task4', cate.categoryId]" routerLinkActive="active">{{cate.categoryName}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="items">
+    <router-outlet></router-outlet>
+  </div>
+</div>
