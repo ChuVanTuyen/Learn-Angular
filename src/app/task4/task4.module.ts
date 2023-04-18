@@ -9,12 +9,6 @@ const task4Routes: Routes = [
   {
     path: '',
     component: Task4Component,
-    children: [
-      {
-        path: ':id',
-        component: ItemsComponent,
-      }
-    ]
   }
 ];
 

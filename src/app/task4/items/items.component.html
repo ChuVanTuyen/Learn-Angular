@@ -7,7 +7,7 @@
 </div>
 <ng-template #group>
   <div class="items-btn">
-    <button>Flashcard</button>
+    <button (click)="showFlashCard()">Flashcard</button>
     <button>Fill</button>
   </div>
   <div class="list-item">
@@ -18,7 +18,7 @@
       <div class="item-name">{{item.name}}</div>
     </div>
 
-    <div class="modal" *ngIf="checkModal">
+    <div class="modal" *ngIf="checks.checkModal">
       <div class="modal-blur" (click)="toggleModal(false)"></div>
       <div class="modal-content">
         <div> {{item.name}}</div>
