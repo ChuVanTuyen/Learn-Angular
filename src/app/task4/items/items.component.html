@@ -2,7 +2,7 @@
     <a href="">Flashcard</a>
     <a href="">Fill</a>
 </div> -->
-<div *ngIf="items.length === 0;else group" class="item-none">
+<div *ngIf="!itemsLength;else group" class="item-none">
   <h4>KHÔNG CÓ TỪ TRONG NHÓM</h4>
 </div>
 <ng-template #group>

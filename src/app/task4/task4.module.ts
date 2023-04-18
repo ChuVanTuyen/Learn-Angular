@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { Task4Component } from './task4.component';
 import { ItemsComponent } from './items/items.component';
+import { FlashcardComponent } from './flashcard/flashcard.component';
 
 const task4Routes: Routes = [
   {
@@ -21,6 +22,7 @@ const task4Routes: Routes = [
   declarations: [
     Task4Component,
     ItemsComponent,
+    FlashcardComponent,
   ],
   imports: [
     CommonModule,
