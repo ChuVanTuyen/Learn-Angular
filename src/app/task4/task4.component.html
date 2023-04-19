@@ -1,16 +1,15 @@
 <div class="task4">
-  <div class="note" *ngIf="!checks.flashcard;else flashCard">
+  <div class="note" *ngIf="!checks.checkFlashcard;else flashCard">
     <div class="category">
       <div class="category-title">Tên danh mục</div>
       <ul class="category-list">
         <li *ngFor="let cate of categories; index as idx">
-          <a (click)="showItems(cate.categoryId, idx)"
-            [class.active]="checks.categoryActive === idx">{{cate.categoryName}}</a>
+          <a (click)="showItems(cate, idx)" [class.active]="checks.categoryActive === idx">{{cate.categoryName}}</a>
         </li>
       </ul>
     </div>
     <div class="items">
-      <app-items [items]="items" [itemsLength]="checks.itemsLength" (reFlashcard)="showFlashcard($event)"></app-items>
+      <app-items [items]="items" [itemsLength]="checks.itemsLength" (reFlashcard)="showFlashcard()"></app-items>
     </div>
   </div>
   <ng-template #flashCard>

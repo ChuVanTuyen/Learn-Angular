@@ -62,6 +62,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            .bt2-form{
+                >div{
+                    margin: 8px 0;
+                }
+                input{
+                    margin: 3px 0;
+                }
+            }
             .btn-right{
                 margin-top: 20px;
                 text-align: right;

@@ -8,7 +8,7 @@ import { ConfigService } from 'src/app/config/config.service';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit, AfterViewInit {
-  constructor(private configService: ConfigService, private route: ActivatedRoute) { }
+  constructor() { }
   @Input() items: any; // lưu danh sách các từ đã có trong folder
   @Input() itemsLength: any;
   item: any;// lưu giá trị cho modal chi tiết
@@ -37,6 +37,6 @@ export class ItemsComponent implements OnInit, AfterViewInit {
 
   // hàm hiện flashcard của folder
   showFlashCard(): void {
-    this.reFlashcard.emit(this.items);
+    this.reFlashcard.emit();
   }
 }

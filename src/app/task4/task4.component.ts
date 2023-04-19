@@ -14,7 +14,7 @@ export class Task4Component implements OnInit {
   items: any;
   flashcard: any;
   checks = {
-    flashcard: false,
+    checkFlashcard: false,
     itemsLength: false,// kiểm tra để hiện danh sách item; nếu sử dụng trực tiếp items.length trong *ngIf sẽ xuất hiện lỗi
     checkModal: false,// ẩn hiện modal
     categoryActive: 0,// active folder
@@ -25,25 +25,27 @@ export class Task4Component implements OnInit {
     this.getDataNote.getCategory()
       .subscribe((data: any) => {
         this.categories = [...data];
-        console.log(this.categories[0].categoryId);
-        this.showItems(this.categories[0].categoryId);// gọi api các items trong folder đầu tiên
+        this.showItems(this.categories[0]);// gọi api các items trong folder đầu tiên
       });
   }
 
-  showItems(cate: number, index?: number): void {
-    this.getDataNote.getItems(cate)
+  showItems(cate: any, index?: number): void {
+    this.getDataNote.getItems(cate.categoryId)
       .subscribe((data: any) => {
         this.items = data.data;
+        console.log(this.items);
         this.checks.itemsLength = this.items.length !== 0 ? true : false;
+        this.flashcard = {
+          catergoryName: cate.categoryName,
+          items: this.items,
+        }
       });
     if (index !== undefined) {
       this.checks.categoryActive = index;
     }
   }
 
-  showFlashcard(data: any): void {
-    this.checks.flashcard = true;
-    this.flashcard = data;
-    console.log(this.flashcard);
+  showFlashcard(): void {
+    this.checks.checkFlashcard = true;
   }
 }

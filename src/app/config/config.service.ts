@@ -22,7 +22,7 @@ export class ConfigService {
   getCategory() {
     let urlCategory = 'https://api.mazii.net/api/get-category/0/100';
     if (this.cacheNote.has(urlCategory)) {
-      return of(this.cacheNote.getDataCache(urlCategory));// lấy data từ cache
+      return this.cacheNote.getDataCache(urlCategory);// lấy data từ cache
     }
     else {// nếu trong cache chưa có data thì thực hiện gọi api
       // this.cacheNote.setDataCache(urlCategory, this.categories);// lưu data vào cache
@@ -43,7 +43,7 @@ export class ConfigService {
   getItems(id: any) {
     let url = `https://api.mazii.net/api/get-note/${id}/0/10`;
     if (this.cacheNote.has(url)) {// nếu đã từng gọi api và data đã được lưu vào cache
-      return of(this.cacheNote.getDataCache(url));// lấy data từ cache
+      return this.cacheNote.getDataCache(url);// lấy data từ cache
     } else {// thực hiện call api
       return this.http.get<any>(`https://api.mazii.net/api/get-note/${id}/0/10`, {
         headers: {

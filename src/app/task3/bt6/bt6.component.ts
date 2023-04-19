@@ -9,19 +9,22 @@ import { UUID } from 'angular2-uuid';
 })
 export class Bt6Component implements OnInit {
   icons = { faWrench, faXmark };// dùng icons fontawesome;
-  showAdd = false;// ẩn hiện modal thêm công việc
-  showModalDelete = false;// ẩn hiện modal có chắc chắn muốn xóa công việc 
-  filter = 'Tất cả'; // lọc công việc: tất cả, chưa hoàn thành, đã hoàn thành
+  checks = {
+    showAdd: false,// ẩn hiện modal thêm công việc
+    showModalDelete: false,// ẩn hiện modal có chắc chắn muốn xóa công việc
+    emptyTaskName: false, // kiểm tra đã nhập tên công việc hay chưa
+    emptyTaskTime: false,// kiểm tra đã nhập thời gian hay chưa 
+  };
+  filter = '0'; // lọc công việc: tất cả, chưa hoàn thành, đã hoàn thành
   tasks: any;// lưu dữ liệu mảng công việc
   task = {
     id: '',
     name: '',
     time: '',
-    status: 'Chưa hoàn thành',
+    status: '1',
     update: false
   };
   ngOnInit(): void {
-    // console.log(this.faWrench);
     // localStorage.clear();
     let list = localStorage.getItem('tasks');
     if (list) {
@@ -31,7 +34,7 @@ export class Bt6Component implements OnInit {
 
   // các hàm thêm công việc
   isShowAdd(): void {// hiện modal thêm công việc
-    this.showAdd = true;
+    this.checks.showAdd = true;
   }
 
   isHideShowAdd(): void {// ẩn modal thêm công việc
@@ -39,14 +42,28 @@ export class Bt6Component implements OnInit {
       id: '',
       name: '',
       time: '',
-      status: 'Chưa hoàn thành',
+      status: '1',
       update: false
     };
-    this.showAdd = false;
+    this.checks.showAdd = false;
+    this.checks.emptyTaskName = false;
+    this.checks.emptyTaskTime = false;
   }
 
   addSubmit(): void {// thêm công việc
     this.task.id = UUID.UUID();
+    if (!this.task.name.trim()) {
+      this.checks.emptyTaskName = true;
+      return;
+    } else {
+      this.checks.emptyTaskName = false;
+    }
+    if (!this.task.time.trim()) {
+      this.checks.emptyTaskTime = true;
+      return;
+    } else {
+      this.checks.emptyTaskTime = false;
+    }
     if (this.tasks) {
       this.tasks.push(this.task);
     } else {
@@ -57,7 +74,7 @@ export class Bt6Component implements OnInit {
       id: '',
       name: '',
       time: '',
-      status: 'Chưa hoàn thành',
+      status: '1',
       update: false
     }
   }
@@ -69,14 +86,14 @@ export class Bt6Component implements OnInit {
       id: '',
       name: '',
       time: '',
-      status: 'Chưa hoàn thành',
+      status: '1',
       update: false
     }
-    this.showModalDelete = false;
+    this.checks.showModalDelete = false;
   }
 
   isDelete(data: string) {// khi click vào xóa công việc,
-    this.showModalDelete = true;//hiện modal hỏi có chắc chắn muốn xóa hay không
+    this.checks.showModalDelete = true;//hiện modal hỏi có chắc chắn muốn xóa hay không
     this.task.id = data;// lấy id công việc cần xóa
   }
 
@@ -101,7 +118,7 @@ export class Bt6Component implements OnInit {
   changeStatus(id: string): void {// sửa trạng thái công việc
     let data = this.tasks.find((t: any) => t.id === id);
     data.status =
-      data.status === 'Chưa hoàn thành' ? data.status = 'Đã hoàn thành' : data.status = 'Chưa hoàn thành';
+      data.status === '1' ? data.status = '2' : data.status = '1';
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
   showUpdate(id: string): void {// ẩn hiện trường sửa công việc
@@ -117,7 +134,7 @@ export class Bt6Component implements OnInit {
       id: '',
       name: '',
       time: '',
-      status: 'Chưa hoàn thành',
+      status: '1',
       update: false
     };
     console.log('cancel');
@@ -132,7 +149,7 @@ export class Bt6Component implements OnInit {
       id: '',
       name: '',
       time: '',
-      status: 'Chưa hoàn thành',
+      status: '1',
       update: false
     };
     console.log('updated');
