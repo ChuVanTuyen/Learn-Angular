@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConfigService } from 'src/app/config/config.service';
-import { MyCacheService } from 'src/app/modules/my-cache.service';
 
 @Component({
   selector: 'app-items',
@@ -9,12 +8,11 @@ import { MyCacheService } from 'src/app/modules/my-cache.service';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit, AfterViewInit {
-  constructor(private configService: ConfigService, private route: ActivatedRoute, private myCache: MyCacheService) { }
+  constructor(private configService: ConfigService, private route: ActivatedRoute) { }
   @Input() items: any; // lưu danh sách các từ đã có trong folder
   @Input() itemsLength: any;
   item: any;// lưu giá trị cho modal chi tiết
   checks = {
-    itemsLength: false,// kiểm tra để hiện danh sách item; nếu sử dụng trực tiếp items.length trong *ngIf sẽ xuất hiện lỗi
     checkModal: false// ẩn hiện modal
   }
 

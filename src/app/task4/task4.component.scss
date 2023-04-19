@@ -25,10 +25,14 @@
                         height: 100%;
                         text-decoration: none;
                         color: black;
+                        &:hover{
+                            cursor: pointer;
+                        }
                     }
                     a.active{
                         color: #1d0fff;
                         font-weight: bold;
+                        
                     }
                 }
             }

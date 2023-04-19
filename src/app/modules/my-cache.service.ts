@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MyCacheService {
+export class CacheNoteService {
   constructor() { }
   cache = new Map<string, any>();
   getDataCache(key: string): any {

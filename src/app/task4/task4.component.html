@@ -1,5 +1,5 @@
 <div class="task4">
-  <div class="note">
+  <div class="note" *ngIf="!checks.flashcard;else flashCard">
     <div class="category">
       <div class="category-title">Tên danh mục</div>
       <ul class="category-list">
@@ -10,10 +10,11 @@
       </ul>
     </div>
     <div class="items">
-      <app-items [items]="items" [itemsLength]="checks.itemsLength"></app-items>
+      <app-items [items]="items" [itemsLength]="checks.itemsLength" (reFlashcard)="showFlashcard($event)"></app-items>
     </div>
   </div>
-
-  <app-flashcard *ngIf="checks.flashcard" (reFlashcard)="showFlashcard($event)"></app-flashcard>
+  <ng-template #flashCard>
+    <app-flashcard></app-flashcard>
+  </ng-template>
 
 </div>
