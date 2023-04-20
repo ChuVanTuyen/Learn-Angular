@@ -1,100 +1,99 @@
 .schedule{
     width: 50%;
     margin: auto;
-    .btn{
-        outline: none;
-        border: none;
-        background-color: transparent;
+}
+.btn{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+.menu{
+    text-align: right;
+    margin: 25px 0 10px 0;
+    select, button{
+        border: 1px solid black;
     }
-    .menu{
-        text-align: right;
-        margin: 25px 0 10px 0;
-        select, button{
-            border: 1px solid black;
-        }
-        select{
-            margin-left: 15px;
-            padding: 5px 0;
-        }
-        button{
-            padding: 5px 10px;
-        }
+    select{
+        margin-left: 15px;
+        padding: 5px 0;
     }
-    .schedule-table{
-        table{
-            border: 1px solid black;
-            border-spacing: 0px;
-            width: 100%;
-        }
-        table, th, td{
-            text-align: center;
-        }
-    
+    button{
+        padding: 5px 10px;
+    }
+}
+.schedule-table{
+    table{
+        border: 1px solid black;
+        border-spacing: 0px;
+        width: 100%;
+    }
+    table, th, td{
+        text-align: center;
+    }
+
+    td{
+        border-bottom: 1px solid #ddd;
+    }
+
+    th, td{
+        padding: 10px;
+    }
+    thead{
         td{
-            border-bottom: 1px solid #ddd;
-        }
-    
-        th, td{
-            padding: 10px;
-        }
-        thead{
-            td{
-                border-bottom: 1px solid black;
-            }
+            border-bottom: 1px solid black;
         }
     }
-    .modal{
-        .modal-background{
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(5, 5, 5, 0.5);
-            z-index: 100;
+}
+
+.modal-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(5, 5, 5, 0.5);
+    z-index: 100;
+}
+.modal-content{
+    position: fixed;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 101;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .bt2-form{
+        >div{
+            margin: 8px 0;
         }
-        .modal-content{
-            position: fixed;
-            background-color: white;
-            border-radius: 5px;
-            z-index: 101;
-            padding: 20px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            .bt2-form{
-                >div{
-                    margin: 8px 0;
-                }
-                input{
-                    margin: 3px 0;
-                }
-            }
-            .btn-right{
-                margin-top: 20px;
-                text-align: right;
-            }
-            button{
-                width: 60px;
-                border-radius: 3px;
-                padding: 6px;
-            }
-            button + button{
-                margin-left: 10px;
-            }
+        input{
+            margin: 3px 0;
         }
     }
-    .btn-light{
-        background-color: #f5f5f5;
-        &:hover{
-            background-color: #eee;
-        }
+    .btn-right{
+        margin-top: 20px;
+        text-align: right;
     }
-    .btn-warning{
-        background-color: #dc3545;
-        color: white;
-        &:hover{
-            background-color: #c82333;
-        }
+    button{
+        width: 60px;
+        border-radius: 3px;
+        padding: 6px;
+    }
+    button + button{
+        margin-left: 10px;
+    }
+}
+.btn-light{
+    background-color: #f5f5f5;
+    &:hover{
+        background-color: #eee;
+    }
+}
+.btn-warning{
+    background-color: #dc3545;
+    color: white;
+    &:hover{
+        background-color: #c82333;
     }
 }

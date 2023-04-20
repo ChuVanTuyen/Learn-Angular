@@ -13,7 +13,7 @@
     </div>
   </div>
   <ng-template #flashCard>
-    <app-flashcard></app-flashcard>
+    <app-flashcard [category]="flashcard" (checkFlashcard)="closeFlashcard()"></app-flashcard>
   </ng-template>
 
 </div>

@@ -25,7 +25,8 @@ export class Task4Component implements OnInit {
     this.getDataNote.getCategory()
       .subscribe((data: any) => {
         this.categories = [...data];
-        this.showItems(this.categories[0]);// gọi api các items trong folder đầu tiên
+        this.showItems(this.categories[1]);// gọi api các items trong folder đầu tiên
+        this.checks.checkFlashcard = true;
       });
   }
 
@@ -36,7 +37,7 @@ export class Task4Component implements OnInit {
         console.log(this.items);
         this.checks.itemsLength = this.items.length !== 0 ? true : false;
         this.flashcard = {
-          catergoryName: cate.categoryName,
+          categoryName: cate.categoryName,
           items: this.items,
         }
       });
@@ -47,5 +48,9 @@ export class Task4Component implements OnInit {
 
   showFlashcard(): void {
     this.checks.checkFlashcard = true;
+  }
+
+  closeFlashcard(): void {
+    this.checks.checkFlashcard = false;
   }
 }

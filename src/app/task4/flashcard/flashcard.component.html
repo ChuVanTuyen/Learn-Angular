@@ -1,8 +1,113 @@
 <div class="flashcard">
-    <div class="btn-back">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <div class="btn-back" (click)="closeFlashcard()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path
+        d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z" />
+    </svg>
+    &nbsp;&nbsp;
+    <span>{{category.categoryName}}</span>
+  </div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-title">
+        Từ vựng
+      </div>
+      <div class="card-filter">
+        <div class="filter-btn" (click)="showOptionFilter()">
+          <span *ngIf="filter === 2">Tất cả</span>
+          <span *ngIf="filter === 1">Đã nhớ</span>
+          <span *ngIf="filter === 0">Chưa nhớ</span>
+          &nbsp; &nbsp;
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
-                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z" />
-        </svg>
+              d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+          </svg>
+        </div>
+        <ul class="filter-option" *ngIf="checks.isShowOptionFilter" (click)="changeFilterValue($event)">
+          <li value="2">Tất cả</li>
+          <li value="1">Đã nhớ</li>
+          <li value="0">Chưa nhớ</li>
+        </ul>
+      </div>
     </div>
+    <div class="card-body">
+      <div class="list">
+
+        <button class="carousel-btn carousel-btn-left" (click)="shiftLeft()">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+          </svg>
+        </button>
+
+        <div class="card-carousel">
+          <ng-container *ngFor="let item of categoryFilter; index as idx; count as lenght">
+            <div class="item" *ngIf="checks.isItemCarousel === idx">
+              <div class="item-body">
+                <div class="item-face item-front" [class.show]="checks.isFlip" (click)="flipCard()">
+                  <h4>{{item.name}}</h4>
+                  <div class="item-page">{{idx+1}}/{{lenght}}</div>
+                </div>
+                <div class="item-face" [class.show]="!checks.isFlip" (click)="flipCard()">
+                  <div>
+                    <h4>{{item.name}}</h4>
+                    <p>Nghĩa: {{item.mean}}</p>
+                  </div>
+                  <div class="item-page">{{idx+1}}/{{lenght}}</div>
+                </div>
+              </div>
+
+              <!-- đã nhớ hay chưa nhớ -->
+              <div class="item-footer">
+                <div class="remember">
+                  <div class="remember-btn" [class.active]="item.remember === 1" (click)="changeRemember(item, idx)">
+                    <!-- -->
+                    <button class="remember-btn--succeed">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                          d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                      </svg>
+                    </button>
+                    <span>Đã nhớ</span>
+                  </div>
+                  <div class="remember-btn" [class.active]="item.remember === 0 || item.remember === null"
+                    (click)="changeRemember(item, idx)">
+                    <button class="remember-btn--warn">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                          d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                      </svg>
+                    </button>
+                    <span>Chưa nhớ</span>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </ng-container>
+        </div>
+
+
+        <button class="carousel-btn carousel-btn-right" (click)="shiftRight()">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="mixRandom" (click)="mixRandom()">
+    <svg xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+      <path
+        d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z" />
+    </svg>
+  </button>
 </div>
