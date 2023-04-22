@@ -81,7 +81,6 @@ export class FlashcardComponent implements OnChanges, OnInit {
       ? this.checks.isItemCarousel--
       : this.checks.isItemCarousel = this.categoryFilter.length - 1;
   }
-
   shiftRight(): void {
     this.checks.isItemCarousel < this.categoryFilter.length - 1
       ? this.checks.isItemCarousel++

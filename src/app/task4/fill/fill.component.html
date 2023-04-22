@@ -1,0 +1,59 @@
+<div class="fill">
+  <div class="fill-back" (click)="closeFill()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path
+        d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z" />
+    </svg>
+    &nbsp;&nbsp;
+    <span>Luyện tập / Điền từ</span>
+  </div>
+  <div class="fill-screen">
+    <div class="time-bar">
+      <div class="time">{{time}}s</div>
+      <div class="bar-percent">
+        <div class="percent animation" #timeBar></div>
+      </div>
+    </div>
+    <div class="fill-content">
+      <div class="title-default">
+        Điền từ còn thiếu vào chỗ trống
+      </div>
+      <div class="game">
+        <div class="text-question">
+          <span class="character" *ngFor="let word of arrQuestion">{{word}}</span>
+          <div class="mean">
+            Nghĩa: {{category[qCount].mean}}
+          </div>
+        </div>
+        <div class="answer">
+          <ng-container *ngFor="let c of arrAnswer">
+            <button class="answer-btn" (click)="onClickAnswer(c)">
+              {{c}}
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-result" #ngModalResult>
+    <div class="modal-result-body">
+      <div class="result">Số câu trả lời đúng: {{qCount+1}}/{{wordStore.length}} </div>
+      <div class="advice" *ngIf="qCount+1 < wordStore.length*0.5">
+        Thật tiếc, có vẻ hôm nay bạn làm chưa được tốt lắm, hãy cố gắng hơn nhé!
+      </div>
+      <div class="advice" *ngIf="qCount+1 >= wordStore.length*0.5 && qCount+1 < wordStore.length ">
+        Bạn đã làm tốt, hãy cố gắng hơn nhé!
+      </div>
+      <div class="advice" *ngIf="qCount+1 >= wordStore.length">
+        Thật tuyệt vời, bạn đã hoàn thành bài học một cách xuất sắc!
+      </div>
+      <div class="btn">
+        <button (click)="playAgain()">Chơi lại</button>
+        <button (click)="playContinue()">Chơi tiếp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- *ngIf="qCount >= wordStore * 0.5"
+*ngIf="qCount >= wordStore * 0.5" -->

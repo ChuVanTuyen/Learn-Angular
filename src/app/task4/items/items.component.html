@@ -8,7 +8,7 @@
 <ng-template #group>
   <div class="items-btn">
     <button (click)="showFlashCard()">Flashcard</button>
-    <button>Fill</button>
+    <button (click)="showFillCard()">Fill</button>
   </div>
   <div class="list-item">
     <div class="item" *ngFor="let item of items" (click)="toggleModal(true, item)">

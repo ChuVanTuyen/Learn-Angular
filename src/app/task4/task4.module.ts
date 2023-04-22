@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Task4Component } from './task4.component';
 import { ItemsComponent } from './items/items.component';
 import { FlashcardComponent } from './flashcard/flashcard.component';
+import { FillComponent } from './fill/fill.component';
 
 const task4Routes: Routes = [
   {
@@ -17,6 +18,7 @@ const task4Routes: Routes = [
     Task4Component,
     ItemsComponent,
     FlashcardComponent,
+    FillComponent,
   ],
   imports: [
     CommonModule,

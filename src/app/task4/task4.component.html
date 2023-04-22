@@ -1,19 +1,35 @@
 <div class="task4">
-  <div class="note" *ngIf="!checks.checkFlashcard;else flashCard">
-    <div class="category">
-      <div class="category-title">Tên danh mục</div>
-      <ul class="category-list">
-        <li *ngFor="let cate of categories; index as idx">
-          <a (click)="showItems(cate, idx)" [class.active]="checks.categoryActive === idx">{{cate.categoryName}}</a>
-        </li>
-      </ul>
+  <ng-container *ngIf="!checks.showFill; else ngFill">
+    <div class="note" *ngIf="!checks.showFlashcard;else flashCard">
+      <div class="category">
+        <div class="category-title">Tên danh mục</div>
+        <ul class="category-list">
+          <li *ngFor="let cate of categories; index as idx">
+            <a (click)="showItems(cate, idx)" [class.active]="checks.categoryActive === idx">{{cate.categoryName}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="items">
+        <app-items [items]="items" [itemsLength]="checks.itemsLength"
+          (reFlashFill)="showFlashOrFill($event)"></app-items>
+      </div>
     </div>
-    <div class="items">
-      <app-items [items]="items" [itemsLength]="checks.itemsLength" (reFlashcard)="showFlashcard()"></app-items>
+  </ng-container>
+  <ng-template #flashCard>
+    <app-flashcard [category]="categoryData" (checkFlashcard)="closeFlashcard()"></app-flashcard>
+  </ng-template>
+  <ng-template #ngFill>
+    <app-fill [category]="categoryData.items" *ngIf="checks.showFill" (checkCloseFill)="closeFill()"></app-fill>
+  </ng-template>
+  <div class="condition-fill" #ngConditionFill>
+    <div class="condition-blur" (click)="closeConditionFill()"></div>
+    <div class="condition-body">
+      <button class="btn-close" (click)="closeConditionFill()">X</button>
+      <div>
+        <h5>Thông báo</h5>
+        <p>Bạn cần tối thiểu 4 từ vựng để học phần này</p>
+      </div>
+      <button class="btn-agree" (click)="closeConditionFill()">Đồng ý</button>
     </div>
   </div>
-  <ng-template #flashCard>
-    <app-flashcard [category]="flashcard" (checkFlashcard)="closeFlashcard()"></app-flashcard>
-  </ng-template>
-
 </div>

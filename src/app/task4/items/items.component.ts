@@ -16,8 +16,7 @@ export class ItemsComponent implements OnInit, AfterViewInit {
     checkModal: false// ẩn hiện modal
   }
 
-  @Output() reFlashcard = new EventEmitter();
-
+  @Output() reFlashFill = new EventEmitter();
 
   ngOnInit(): void {
 
@@ -37,6 +36,10 @@ export class ItemsComponent implements OnInit, AfterViewInit {
 
   // hàm hiện flashcard của folder
   showFlashCard(): void {
-    this.reFlashcard.emit();
+    this.reFlashFill.emit({ flashcard: true, fill: false });
+  }
+
+  showFillCard(): void {
+    this.reFlashFill.emit({ flashcard: false, fill: true });
   }
 }
