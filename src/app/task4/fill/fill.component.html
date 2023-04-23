@@ -27,7 +27,7 @@
         </div>
         <div class="answer">
           <ng-container *ngFor="let c of arrAnswer">
-            <button class="answer-btn" (click)="onClickAnswer(c)">
+            <button class="answer-btn" (click)="onClickAnswer($event, c)">
               {{c}}
             </button>
           </ng-container>
@@ -37,14 +37,14 @@
   </div>
   <div class="modal-result" #ngModalResult>
     <div class="modal-result-body">
-      <div class="result">Số câu trả lời đúng: {{qCount+1}}/{{wordStore.length}} </div>
-      <div class="advice" *ngIf="qCount+1 < wordStore.length*0.5">
+      <div class="result">Số câu trả lời đúng: {{qCount}}/{{wordStore.length}} </div>
+      <div class="advice" *ngIf="qCount < wordStore.length*0.5">
         Thật tiếc, có vẻ hôm nay bạn làm chưa được tốt lắm, hãy cố gắng hơn nhé!
       </div>
-      <div class="advice" *ngIf="qCount+1 >= wordStore.length*0.5 && qCount+1 < wordStore.length ">
+      <div class="advice" *ngIf="qCount >= wordStore.length*0.5 && qCount < wordStore.length ">
         Bạn đã làm tốt, hãy cố gắng hơn nhé!
       </div>
-      <div class="advice" *ngIf="qCount+1 >= wordStore.length">
+      <div class="advice" *ngIf="qCount >= wordStore.length">
         Thật tuyệt vời, bạn đã hoàn thành bài học một cách xuất sắc!
       </div>
       <div class="btn">

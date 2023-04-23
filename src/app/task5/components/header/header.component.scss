@@ -1,0 +1,118 @@
+.header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 55px;
+    padding: 0 3%;
+    border-bottom: 1px solid var(--border);
+    .logo{
+        font-size: 42px;
+        width: 13%;
+        padding-right: 2%;
+        min-width: 110px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .header-body{
+        display: flex;
+        align-items: center;
+        padding: 3px 0;
+        height: 55px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .header-wrap{
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .search{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--text-gray);
+        input{
+            flex: 1;
+            border: none;
+            outline: none;
+            height: 40px;
+            background-color: transparent;
+            color: white;
+        }
+        button{
+            width: 50px;
+            height: 100%;
+            border-top-left-radius: 999px;
+            border-bottom-left-radius: 999px;
+        }
+        .filter{
+            height: 100%;
+            width: 8%;
+            padding: 10px 0;
+            font-size: 14px;
+            svg{
+                width: 14px;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    .header-order{
+        margin: 0 2%;
+        height: 32px;
+        background-color: var(--primary);
+        padding: 6px 12px;
+        border-radius: 4px;
+        svg{
+            fill: white;
+        }
+    }
+
+    .account{
+        svg{
+            width: 30px;
+        }
+    }
+
+    button, .account, .header-order{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    // .header{
+    //     .search{
+    //         .filter{
+    //             width: 73px;
+    //         }
+    //     }
+    // }    
+}
+
+@media only screen and (max-width: 992px) {
+    .header{
+        .search{
+            .filter{
+                span{
+                    display: none;
+                }
+            }
+        }
+        .header-order{
+            span{
+                display: none;
+            }
+        }
+    }    
+}

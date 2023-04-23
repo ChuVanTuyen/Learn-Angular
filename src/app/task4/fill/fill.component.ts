@@ -95,13 +95,23 @@ export class FillComponent implements OnChanges {
     }
   }
 
-  onClickAnswer(character: string): void {
+  onClickAnswer(event: any, character: string): void {
     let length = this.hCpositionArr.length;
+    console.log(event);
 
     // kiểm tra ký tự đúng lần lượt từ trái qua phải
     if (this.wordStore[this.qCount][this.hCpositionArr[this.hCposition]] === character) {
       this.arrQuestion[this.hCpositionArr[this.hCposition]] = character;
       this.hCposition++;
+      event.target.classList.add('correct');
+      setTimeout(() => {
+        event.target.classList.remove('correct');
+      }, 350);
+    } else {
+      event.target.classList.add('wrong');
+      setTimeout(() => {
+        event.target.classList.remove('wrong');
+      }, 550);
     }
     if (this.hCposition > length - 1) {// nếu đã chọn được hết thì tiếp tục câu tiếp theo
       clearInterval(this.clearTimeDown);

@@ -26,6 +26,10 @@ const routes: Routes = [
     loadChildren: () => import('./task4/task4.module').then(m => m.Task4Module)
   },
   {
+    path: 'task5',
+    loadChildren: () => import('./task5/task5.module').then(m => m.Task5Module)
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
   }
