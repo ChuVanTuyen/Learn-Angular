@@ -1,0 +1,53 @@
+@import url("../../assets/fonts/roboto.css");
+
+body{
+    background-color: var(--bg-black);
+    color: white;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+}
+
+.task5{
+    // height: 97vh;
+    overflow: hidden;
+}
+
+.task5-body{
+    margin-top: 47px;
+    padding: 0 3%;    
+
+}
+
+svg{
+    fill: var(--text-gray);
+    width: 16px;
+}
+
+app-header{
+    padding: 0;
+    background-color: var(--bg-black2);
+}
+
+.nav{
+    border-right: 1px solid var(--border);
+    height: 90vh;
+}
+
+.task5-content{
+    padding-left: 3%;
+}
+@media screen and (max-width: 992px){
+    .nav{
+        position: absolute;
+        width: 200px;
+        background-color: var(--bg-black);
+        transform: translateX(-100%);
+        opacity: 0;
+        z-index: 10;
+        transition: all 0.3s;
+    }
+    .nav.show{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

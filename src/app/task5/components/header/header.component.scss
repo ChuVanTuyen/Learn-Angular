@@ -5,22 +5,24 @@
     right: 0px;
     height: 55px;
     padding: 0 3%;
+    z-index: 99;
+    background-color: var(--bg-b);
     border-bottom: 1px solid var(--border);
+    background-color: var(--bg-black);
     .logo{
-        font-size: 42px;
-        width: 13%;
-        padding-right: 2%;
-        min-width: 110px;
+        font-size: 38px;
         &:hover{
             cursor: pointer;
+        }
+        button{
+            display: none;
         }
     }
     .header-body{
         display: flex;
         align-items: center;
-        padding: 3px 0;
+        padding: 3px 0 3px 3%;
         height: 55px;
-        width: 100%;
         justify-content: space-between;
     }
 
@@ -53,10 +55,12 @@
             border-bottom-left-radius: 999px;
         }
         .filter{
-            height: 100%;
-            width: 8%;
-            padding: 10px 0;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding-right: 2%;
             font-size: 14px;
+            display: flex;
             svg{
                 width: 14px;
             }
@@ -90,29 +94,38 @@
     }
 }
 
-@media only screen and (max-width: 992px) {
-    // .header{
-    //     .search{
-    //         .filter{
-    //             width: 73px;
-    //         }
-    //     }
-    // }    
+@media screen and (max-width: 992px) {
+    .filter{
+        span{
+            display: none;
+        }
+    }
+    .header{
+        .logo{
+            font-size: 26px;
+            button{
+                display:inline-block;
+            }
+        }     
+    }
 }
 
-@media only screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
+    .header-order{
+        span{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
     .header{
         .search{
-            .filter{
-                span{
-                    display: none;
-                }
-            }
-        }
-        .header-order{
-            span{
+            border-color: transparent;
+            justify-content: flex-end;
+            input{
                 display: none;
             }
         }
-    }    
+    }
 }

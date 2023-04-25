@@ -62,7 +62,8 @@
               <!-- đã nhớ hay chưa nhớ -->
               <div class="item-footer">
                 <div class="remember">
-                  <div class="remember-btn" [class.active]="item.remember === 1" (click)="changeRemember(item, idx)">
+                  <div class="remember-btn" [class.active]="item.remember === 1"
+                    (click)="changeRemember(item.id, idx, 1)">
                     <!-- -->
                     <button class="remember-btn--succeed">
                       <svg xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +75,7 @@
                     <span>Đã nhớ</span>
                   </div>
                   <div class="remember-btn" [class.active]="item.remember === 0 || item.remember === null"
-                    (click)="changeRemember(item, idx)">
+                    (click)="changeRemember(item.id, idx, 0)">
                     <button class="remember-btn--warn">
                       <svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->

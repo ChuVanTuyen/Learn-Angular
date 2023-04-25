@@ -2,6 +2,7 @@
 
 :root{
   --bg-black: #121212;
+  --bg-black2: #181818;
   --primary: #ef4e3e;
   --border: #333;
   --text-gray: #929292;
@@ -25,9 +26,4 @@ button{
   background-color: transparent;
   border: none;
   outline: none;
-}
-
-svg{
-  fill: var(--text-gray);
-  width: 16px;
 }

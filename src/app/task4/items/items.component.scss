@@ -9,6 +9,9 @@
         margin: 0 0 10px 10px;
         border: 1px solid black;
         padding: 10px 20px;
+        &:hover{
+            cursor: pointer;
+        }
         .item-type{
             background-color: orange;
             color: white;
@@ -118,5 +121,8 @@
         outline: none;
         background-color: transparent;
         text-decoration:underline;
+        &:hover{
+            cursor: pointer;
+        }
     }
 }

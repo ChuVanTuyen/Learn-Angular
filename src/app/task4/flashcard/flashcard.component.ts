@@ -41,11 +41,10 @@ export class FlashcardComponent implements OnChanges, OnInit {
   }
 
   //thay đổi remeber cho từ từ vựng
-  changeRemember(item: any, index: number): void {
-    // console.log(remember);
-    this.categoryFilter[index].remember = item.remember ? 0 : 1;
-    let data = this.categoryCopy.find((item: any) => item.id === item.id);
-    data.remember = this.categoryFilter[index].remember;
+  changeRemember(id: any, index: number, rem: number): void {
+    this.categoryFilter[index].remember = rem;
+    let data = this.categoryCopy.find((item: any) => item.id === id);
+    data.remember = rem;
     localStorage.setItem(this.category.categoryName, JSON.stringify(this.categoryCopy));
   }
 

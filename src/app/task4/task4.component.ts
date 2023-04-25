@@ -52,11 +52,13 @@ export class Task4Component implements OnInit {
   // hiện flashcard hoặc fill
   showFlashOrFill(check: any): void {
     this.checks.showFlashcard = check.flashcard;
-    if (this.categoryData.items.length < 4) {
-      this.conditionFill.nativeElement.classList.add("show");
-      return;
+    if (check.fill === true) {
+      if (this.categoryData.items.length < 4) {
+        this.conditionFill.nativeElement.classList.add("show");
+        return;
+      }
     }
-    this.checks.showFill = true;
+    this.checks.showFill = check.fill;
 
   }
 
