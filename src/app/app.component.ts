@@ -1,5 +1,5 @@
 import { Component, Output, ViewChild, AfterViewInit, ViewChildren, QueryList, OnInit } from '@angular/core';
-import { Config, ConfigService } from './config/config.service';
+import { NoteService } from './services/note.service';
 import { Router } from '@angular/router';
 import { map, toArray } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { map, toArray } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private getCate: ConfigService, private router: Router) { }
+  constructor(private getCate: NoteService, private router: Router) { }
   title = 'learn_angular';
   config: any;
   observable = {

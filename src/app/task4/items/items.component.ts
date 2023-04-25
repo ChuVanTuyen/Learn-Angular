@@ -1,6 +1,4 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ConfigService } from 'src/app/config/config.service';
 
 @Component({
   selector: 'app-items',

@@ -3,30 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
 import { CacheNoteService } from '../modules/my-cache.service';
-
-export interface Config {
-  heroesUrl: string;
-  textfile: string;
-  date: any;
-}
-
-
+import { ApiNoteService } from './api-note.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConfigService {
-  constructor(private http: HttpClient, private cacheNote: CacheNoteService) { }
-
-  config: Config | undefined;
+export class NoteService {
+  constructor(private http: HttpClient, private cacheNote: CacheNoteService, private apiNote: ApiNoteService) { }
   getCategory() {
-    let urlCategory = 'https://api.mazii.net/api/get-category/0/100';
+    let urlCategory = this.apiNote.urlCategory;
     if (this.cacheNote.has(urlCategory)) {
       return of(this.cacheNote.getDataCache(urlCategory));// lấy data từ cache
     }
     else {// nếu trong cache chưa có data thì thực hiện gọi api
       // this.cacheNote.setDataCache(urlCategory, this.categories);// lưu data vào cache
-      return this.http.get<any>('https://api.mazii.net/api/get-category/0/100', {
+      return this.http.get<any>(urlCategory, {
         headers: {
           authorization: '101fba27ab9c4810f0a6d60bbb1935aa'
         }
@@ -41,11 +32,11 @@ export class ConfigService {
     }
   }
   getItems(id: any) {
-    let url = `https://api.mazii.net/api/get-note/${id}/0/10`;
+    let url = `${this.apiNote.urlGetNote}${id}/0/10`;
     if (this.cacheNote.has(url)) {// nếu đã từng gọi api và data đã được lưu vào cache
       return of(this.cacheNote.getDataCache(url));// lấy data từ cache
     } else {// thực hiện call api
-      return this.http.get<any>(`https://api.mazii.net/api/get-note/${id}/0/10`, {
+      return this.http.get<any>(url, {
         headers: {
           authorization: '101fba27ab9c4810f0a6d60bbb1935aa'
         }

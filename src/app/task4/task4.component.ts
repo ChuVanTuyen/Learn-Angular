@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ConfigService } from '../config/config.service';
+import { NoteService } from '../services/note.service';
 
 @Component({
   selector: 'app-task4',
@@ -9,7 +9,7 @@ import { ConfigService } from '../config/config.service';
   styleUrls: ['./task4.component.scss']
 })
 export class Task4Component implements OnInit {
-  constructor(private getDataNote: ConfigService, private router: Router) { }
+  constructor(private getDataNote: NoteService, private router: Router) { }
   @ViewChild("ngConditionFill") conditionFill!: ElementRef;
   categories: any;// lưu các folder
   items: any;
