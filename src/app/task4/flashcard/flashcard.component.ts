@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { LocalStorageService } from 'src/app/modules/local-storage.service';
 
 @Component({
   selector: 'app-flashcard',
@@ -6,6 +7,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
   styleUrls: ['./flashcard.component.scss']
 })
 export class FlashcardComponent implements OnChanges, OnInit {
+  constructor(private myLocalStorage: LocalStorageService) { }
   @Input() category: any;
   @Output() checkFlashcard = new EventEmitter();
   filter = 2;// 2. tất cả, 1. đã nhớ, 0. chưa nhớ
@@ -20,20 +22,20 @@ export class FlashcardComponent implements OnChanges, OnInit {
 
   ngOnChanges(): void {
     if (this.category) { // lấy dữ liệu cho categoryCopy để hiển thị ra giao diện
-      let data = localStorage.getItem(this.category.categoryName);
+      let data = this.myLocalStorage.getItem(this.category.categoryName);
       if (typeof data === 'string') {
         this.categoryCopy = JSON.parse(data);
       }
       else {
         this.categoryCopy = this.category.items;
-        localStorage.setItem(this.category.categoryName, JSON.stringify(this.category.items));
+        this.myLocalStorage.setItem(this.category.categoryName, this.category.items);
       }
       this.categoryFilter = this.categoryCopy;
     }
   }
 
   ngOnInit(): void {
-    // localStorage.clear();
+    // this.myLocalStorage.clear();
   }
 
   closeFlashcard(): void { // quay về dao diện danh sách item folder
@@ -45,7 +47,7 @@ export class FlashcardComponent implements OnChanges, OnInit {
     this.categoryFilter[index].remember = rem;
     let data = this.categoryCopy.find((item: any) => item.id === id);
     data.remember = rem;
-    localStorage.setItem(this.category.categoryName, JSON.stringify(this.categoryCopy));
+    this.myLocalStorage.setItem(this.category.categoryName, this.categoryCopy);
   }
 
   // các hàm cho button filter
