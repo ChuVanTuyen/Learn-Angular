@@ -6,7 +6,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
   styleUrls: ['./voice-chart.component.scss']
 })
 export class VoiceChartComponent implements OnInit, AfterViewInit {
-  @ViewChild("ngFindFirtActive") private findFirtAtive!: ElementRef;
+  @ViewChild("ngList") private listItem!: ElementRef;
   list = [
     { id: 0, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/CityPop.jpg" },
     { id: 1, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/1420724053825_500.jpg" },
@@ -20,22 +20,26 @@ export class VoiceChartComponent implements OnInit, AfterViewInit {
     { id: 9, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/sakikoosawa.jpg" },
   ];
   bigImg = '';// ảnh to
-  keepActive: any;// phần tử đang có class active trong danh sách
+  item: any;
+  keepActive = 0;// phần tử đang có class active trong danh sách
+  itemHeight = 0;
   ngOnInit(): void {
     this.bigImg = this.list[0].img;// mặc định là ảnh của phần tử đầu tiên trong danh sách
   }
 
   ngAfterViewInit(): void {
-    this.keepActive = this.findFirtAtive.nativeElement.querySelector(".item");
-    this.keepActive.classList.add("active");// thêm class active cho phần tử đầu tiên
+    this.item = this.listItem.nativeElement.querySelector(".item");
+    this.itemHeight = this.item.offsetHeight;
+    // this.keepActive.classList.add("active");// thêm class active cho phần tử đầu tiên
   }
-  chooseVoice(act: any, id: number): void {
-    if (this.keepActive) {// xóa class active cho phần tử cũ đang có active
-      this.keepActive.classList.remove("active");
-    }
-    this.keepActive = act.currentTarget;
-    this.keepActive.classList.add("active");// thêm class acitve cho phần tử mới
-    let voice = this.list.findIndex((item) => item.id === id);
-    this.bigImg = this.list[voice].img;// thay đổi ảnh to để hiển thị
+  chooseVoice(num: number): void {
+    this.keepActive = num;
+    this.bigImg = this.list[this.keepActive].img;// thay đổi ảnh to để hiển thị
+  }
+
+  onScroll(data: any): void {
+    console.log(data.target.scrollTop);
+    this.keepActive = Math.round(data.target.scrollTop / this.itemHeight);
+    this.bigImg = this.list[this.keepActive].img;// thay đổi ảnh to để hiển thị
   }
 }

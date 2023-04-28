@@ -25,7 +25,6 @@ export class SlideComponent implements OnInit, OnChanges, AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.slideItem = this.slide.nativeElement.querySelector(".item");
-
     this.itemWidth = this.slideItem.getBoundingClientRect().width;
     this.slideWidth = this.slide.nativeElement.getBoundingClientRect().width;
     this.showItemNum = Math.floor(this.slideWidth / (this.itemWidth + this.itemMargin));

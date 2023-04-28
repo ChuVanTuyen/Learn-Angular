@@ -1,23 +1,25 @@
 <div class="title">Voice Chart</div>
 
 <div class="voice-chart">
-    <div class="voice-chart-nav">
-        <ul class="list" #ngFindFirtActive>
-            <li class="item" *ngFor="let item of list; index as idx" (click)="chooseVoice($event,item.id)">
-                <div class="item-content">
-                    <div class="stt">{{idx+1}}, </div>
-                    <div class="item-voice">
-                        <img class="item-voice-img" src={{item.img}} alt="">
-                        <div class="item-voice-text">
-                            <p class="name-music">{{item.name}}</p>
-                            <span class="name-artist">{{item.artist}}</span>
+    <div class="voice-chart-nav" (scroll)="onScroll($event)">
+        <ul class="list" #ngList>
+            <ng-container *ngFor="let item of list; index as idx">
+                <li class="item" [class.active]="keepActive === idx" (click)="chooseVoice(idx)">
+                    <div class="item-content">
+                        <div class="stt">{{idx+1}}, </div>
+                        <div class="item-voice">
+                            <img class="item-voice-img" src={{item.img}} alt="">
+                            <div class="item-voice-text">
+                                <p class="name-music">{{item.name}}</p>
+                                <span class="name-artist">{{item.artist}}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="item-view">
-                    {{item.view}} lượt xem
-                </div>
-            </li>
+                    <div class="item-view">
+                        {{item.view}} lượt xem
+                    </div>
+                </li>
+            </ng-container>
         </ul>
     </div>
 

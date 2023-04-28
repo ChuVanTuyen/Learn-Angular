@@ -2,7 +2,7 @@ import { Component, Output, ViewChild, AfterViewInit, ViewChildren, QueryList, O
 import { NoteService } from './services/note.service';
 import { Router } from '@angular/router';
 import { map, toArray } from 'rxjs';
-
+import { ST } from './pipes/velocity.pipe';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +10,15 @@ import { map, toArray } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private getCate: NoteService, private router: Router) { }
+  constructor() { }
   title = 'learn_angular';
   config: any;
   headerLink = true;
-  observable = {
-    next: (data: any) => {
-      this.config = data;
-      console.log(data);
-    },
-    error: (data: any) => console.log(data)
+  st: ST = {
+    distance: 100,// mét
+    time: 11,// giây
   }
   ngOnInit(): void {
-    this.getCate.getItems(0);
-  }
-  onClick() {
-    console.log(this.config);
   }
 
   hideHeaderLink(): void {

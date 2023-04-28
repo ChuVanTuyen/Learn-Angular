@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { VelocityPipe } from './pipes/velocity.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     PageNotFoundComponent,
+    VelocityPipe,
   ],
   imports: [
     BrowserModule,
