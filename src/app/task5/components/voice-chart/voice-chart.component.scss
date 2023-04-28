@@ -1,0 +1,110 @@
+.title{
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.voice-chart{
+    display: flex;
+    margin-top: 10px;
+    height: 320px;
+}
+
+
+
+.voice-chart-nav{
+    height: 320;
+    overflow-y: scroll;
+    width: 50%;
+    margin-right: 3%;
+    &::-webkit-scrollbar{
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: red; 
+        border-radius: 5px;
+    }
+      
+    .list{
+        margin: 0;
+        padding: 0;
+    }
+    img{
+        width: 110px;
+        height: 70px;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10%;
+    margin-bottom: 10px;
+    padding: 5px 20px;
+    border-radius: 4px;
+    transition: 0.2s all;
+    &:hover{
+        cursor: pointer;
+        background-color: #333;
+    }
+}
+
+.item.active{
+    background-color: #333;
+}
+
+.item-content{
+    display: flex;
+    .stt{
+        width: 35px;
+        color: var(--text-gray);
+        font-size: 14px;
+    }
+    .name-music{
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+    .name-artist{
+        font-size: 12px;
+        color: var(--text-gray);
+        text-transform: capitalize;
+    }
+}
+
+.item-voice{
+    display: flex;
+    .item-voice-text{
+        margin-left: 20px;
+    }
+}
+
+.item-view{
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+
+.voice-chart-image{
+    width: 50%;
+    height: 100%;
+    
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .voice-chart-nav{
+        width: 100%;
+    }
+    .voice-chart-image{
+        display: none;
+    }
+}

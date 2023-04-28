@@ -5,6 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
+import { VoiceChartComponent } from './components/voice-chart/voice-chart.component';
+import { SlideComponent } from './components/slide/slide.component';
+import { PopularTagComponent } from './components/popular-tag/popular-tag.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const task5Routes: Routes = [
   {
@@ -19,6 +23,10 @@ const task5Routes: Routes = [
     HeaderComponent,
     NavComponent,
     HomeComponent,
+    VoiceChartComponent,
+    SlideComponent,
+    PopularTagComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,

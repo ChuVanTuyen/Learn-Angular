@@ -1,15 +1,29 @@
 <div class="home-slide">
     <div class="home-slide-list" #ngHomeSlideList>
         <div class="home-slide-item" #ngHomeSlideItem>
-            <img src="../../../../assets/task5/pngtree-school-ancient-music-club-recruits-neoclassical-geometric-gray-banner-picture-image_1091572.jpg"
-                alt="">
+            <img src="../../../../assets/task5/pngtree-japanese-japan-fresh-blue-picture-image_928843.jpg" alt="">
         </div>
         <div class="home-slide-item" #ngHomeSlideItem>
-            <img src="../../../../assets/task5/pngtree-japanese-japan-fresh-blue-picture-image_928843.jpg" alt="">
+            <img src="../../../../assets/task5/pngtree-school-ancient-music-club-recruits-neoclassical-geometric-gray-banner-picture-image_1091572.jpg"
+                alt="">
         </div>
         <div class="home-slide-item" #ngHomeSlideItem>
             <img src="../../../../assets/task5/pngtree-japanese-ukiyo-e-surf-simple-banner-background-picture-image_1090571.jpg"
                 alt="">
         </div>
     </div>
+    <div class="slide-btn-group">
+        <div class="slide-btn active"></div>
+        <div class="slide-btn"></div>
+        <div class="slide-btn"></div>
+    </div>
+</div>
+<div class="home-content">
+    <app-slide [list]="list" [itemMargin]="40" [type]="1">Nghệ sĩ</app-slide>
+    <app-slide [list]="list" [itemMargin]="15" [type]="2">Album nổi bật</app-slide>
+    <app-voice-chart></app-voice-chart>
+    <app-slide [list]="list" [itemMargin]="15" [type]="3">Đề suất</app-slide>
+    <app-slide [list]="list" [itemMargin]="15" [type]="3">Mới nhất</app-slide>
+    <app-popular-tag></app-popular-tag>
+    <app-footer></app-footer>
 </div>

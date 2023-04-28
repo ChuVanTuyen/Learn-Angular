@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private getCate: NoteService, private router: Router) { }
   title = 'learn_angular';
   config: any;
+  headerLink = true;
   observable = {
     next: (data: any) => {
       this.config = data;
@@ -25,5 +26,9 @@ export class AppComponent implements OnInit {
   }
   onClick() {
     console.log(this.config);
+  }
+
+  hideHeaderLink(): void {
+    this.headerLink = false;
   }
 }

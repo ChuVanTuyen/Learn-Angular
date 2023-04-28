@@ -70,17 +70,6 @@
         }
     }
 
-    .header-order{
-        margin: 0 2%;
-        height: 32px;
-        background-color: var(--primary);
-        padding: 6px 12px;
-        border-radius: 4px;
-        svg{
-            fill: white;
-        }
-    }
-
     .account{
         svg{
             width: 30px;
@@ -90,6 +79,89 @@
     button, .account, .header-order{
         &:hover{
             cursor: pointer;
+        }
+    }
+}
+
+.header-order{
+    margin: 0 2%;
+    height: 32px;
+    background-color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    svg{
+        fill: white;
+    }
+}
+
+.modal-oder{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.modal-oder.show{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-blur{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.modal-body{
+    position: fixed;
+    z-index: 2;
+    background-color: var(--bg-black);
+    padding: 20px;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-gray);
+    border-radius: 4px;
+    .close{
+        position: absolute;
+        right: 15px;
+        top: 12px;
+        color: var(--text-gray);
+        font-weight: bold;
+    }
+    h4{
+        margin: 0 0 15px 0;
+        text-align: center;
+        color: white;
+    }
+    p{
+       color: #c4c4c4;
+       font-size: 13px;
+    }
+
+    .form-item{
+        margin-bottom: 15px;
+        input{
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+    }
+    .submit{
+        text-align: end;
+        button{
+            margin: 0;
         }
     }
 }
@@ -116,6 +188,9 @@
             display: none;
         }
     }
+    .modal-body{
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -127,5 +202,8 @@
                 display: none;
             }
         }
+    }
+    .modal-body{
+        width: 95%;
     }
 }

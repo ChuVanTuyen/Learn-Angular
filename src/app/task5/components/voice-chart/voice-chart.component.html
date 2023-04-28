@@ -1,0 +1,27 @@
+<div class="title">Voice Chart</div>
+
+<div class="voice-chart">
+    <div class="voice-chart-nav">
+        <ul class="list" #ngFindFirtActive>
+            <li class="item" *ngFor="let item of list; index as idx" (click)="chooseVoice($event,item.id)">
+                <div class="item-content">
+                    <div class="stt">{{idx+1}}, </div>
+                    <div class="item-voice">
+                        <img class="item-voice-img" src={{item.img}} alt="">
+                        <div class="item-voice-text">
+                            <p class="name-music">{{item.name}}</p>
+                            <span class="name-artist">{{item.artist}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-view">
+                    {{item.view}} lượt xem
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="voice-chart-image">
+        <img src="{{bigImg}}" alt="">
+    </div>
+</div>

@@ -7,8 +7,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() openNav = new EventEmitter<boolean>();
-
+  showModal = false;
   openNavBar(): void {
     this.openNav.emit(true);
+  }
+
+  toggelOder(oder: boolean): void {
+    this.showModal = oder;
   }
 }

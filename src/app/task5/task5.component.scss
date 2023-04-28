@@ -7,6 +7,25 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+.btn-direction{
+    svg{
+        width: 22px;
+        background-color: transparent;
+        padding: 5px;
+        border-radius: 3px;
+        fill: #ed4e3e;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.btn-direction.disabled {
+    svg{
+        fill: var(--text-gray);
+    }
+}
+
 .task5{
     // height: 97vh;
     overflow: hidden;
@@ -16,6 +35,16 @@ body{
     margin-top: 47px;
     padding: 0 3%;    
 
+}
+
+.task5-content{
+    height: 89vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 svg{
@@ -30,12 +59,12 @@ app-header{
 
 .nav{
     border-right: 1px solid var(--border);
-    height: 90vh;
+    height: 89vh;
 }
 
-.task5-content{
-    padding-left: 3%;
-}
+// .task5-content{
+//     // padding-left: 3%;
+// }
 @media screen and (max-width: 992px){
     .nav{
         position: absolute;
