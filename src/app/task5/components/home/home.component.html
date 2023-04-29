@@ -1,21 +1,15 @@
 <div class="home-slide">
     <div class="home-slide-list" #ngHomeSlideList>
-        <div class="home-slide-item" #ngHomeSlideItem>
-            <img src="../../../../assets/task5/pngtree-japanese-japan-fresh-blue-picture-image_928843.jpg" alt="">
-        </div>
-        <div class="home-slide-item" #ngHomeSlideItem>
-            <img src="../../../../assets/task5/pngtree-school-ancient-music-club-recruits-neoclassical-geometric-gray-banner-picture-image_1091572.jpg"
-                alt="">
-        </div>
-        <div class="home-slide-item" #ngHomeSlideItem>
-            <img src="../../../../assets/task5/pngtree-japanese-ukiyo-e-surf-simple-banner-background-picture-image_1090571.jpg"
-                alt="">
-        </div>
+        <ng-container *ngFor="let img of bannerImgs; index as idx">
+            <div class="home-slide-item" [class.active]="itemActive === idx">
+                <img src={{img}} alt="">
+            </div>
+        </ng-container>
     </div>
     <div class="slide-btn-group">
-        <div class="slide-btn active"></div>
-        <div class="slide-btn"></div>
-        <div class="slide-btn"></div>
+        <ng-container *ngFor="let img of bannerImgs; index as idx">
+            <div class="slide-btn" [class.active]="itemActive === idx" (click)="changeItemActive(idx)"></div>
+        </ng-container>
     </div>
 </div>
 <div class="home-content">

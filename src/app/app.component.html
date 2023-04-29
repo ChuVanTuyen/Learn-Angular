@@ -9,4 +9,4 @@
 </div>
 <router-outlet></router-outlet>
 
-<h2>{{st | velocity}} m/s</h2>
+<h2 *ngIf="headerLink">{{st | velocity}} m/s</h2>

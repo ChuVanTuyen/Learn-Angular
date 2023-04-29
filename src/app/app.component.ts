@@ -1,7 +1,4 @@
-import { Component, Output, ViewChild, AfterViewInit, ViewChildren, QueryList, OnInit } from '@angular/core';
-import { NoteService } from './services/note.service';
-import { Router } from '@angular/router';
-import { map, toArray } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { ST } from './pipes/velocity.pipe';
 
 @Component({
@@ -13,7 +10,7 @@ export class AppComponent implements OnInit {
   constructor() { }
   title = 'learn_angular';
   config: any;
-  headerLink = true;
+  headerLink = false;
   st: ST = {
     distance: 100,// mét
     time: 11,// giây

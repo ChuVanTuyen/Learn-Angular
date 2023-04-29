@@ -1,12 +1,12 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit {
-  @ViewChild("ngHomeSlideList") homeSlideList!: ElementRef;
+export class HomeComponent implements AfterViewInit, OnDestroy {
+  @ViewChild("ngHomeSlideList") homeSlide!: ElementRef;
   list = [
     { name: "Name Song", artist: "Kananishino", level: "khó", img: "../../../../assets/task5/1420724053825_500.jpg", kindOfMusic: "Pop Music" },
     { name: "Name Song", artist: "Kananishino", level: "t.bình", img: "../../../../assets/task5/18422817_267711936970458_6205876168907061104_o.jpg", kindOfMusic: "Pop Music" },
@@ -21,38 +21,25 @@ export class HomeComponent implements AfterViewInit {
     { name: "Name Song", artist: "Kananishino", level: "khó", img: "../../../../assets/task5/111036.jpg", kindOfMusic: "Pop Music" },
     { name: "Name Song", artist: "Kananishino", level: "khó", img: "../../../../assets/task5/Untitled.jpeg", kindOfMusic: "Pop Music" },
   ];
-  homeSlideItem: any;
-  slideItem: any;
-  slideNum = 1;
+  bannerImgs = [
+    "../../../../assets/task5/pngtree-school-ancient-music-club-recruits-neoclassical-geometric-gray-banner-picture-image_1091572.jpg",
+    "../../../../assets/task5/pngtree-japanese-ukiyo-e-surf-simple-banner-background-picture-image_1090571.jpg",
+    "../../../../assets/task5/pngtree-japanese-japan-fresh-blue-picture-image_928843.jpg",
+  ];
+  itemActive = 0;
+  clearInfinity: any;
   ngAfterViewInit(): void {
-    this.homeSlideItem = this.homeSlideList.nativeElement.querySelectorAll(".home-slide-item");
-    // this.homeSlideItem[0].style.zIndex = "99";
-    // console.log(this.homeSlideItem[0]);
-    // this.slideItem = setInterval(() => {
-    //   this.slideNum++;
-    //   if (this.slideNum > 2) {
-    //     this.slideNum %= 3;
-    //   }
-    //   if (this.slideNum - 1 < 0) {
-    //     this.homeSlideItem[this.slideNum - 1 + 3].style.left = "-101%";
-    //   } else {
-    //     this.homeSlideItem[this.slideNum - 1].style.left = "-101%";
-    //   }
+    this.clearInfinity = setInterval(() => {
+      this.itemActive++;
+      this.itemActive %= this.bannerImgs.length;
+    }, 5000);
+  }
 
-    //   this.homeSlideItem[this.slideNum].style.visibility = "visible";
-    //   this.homeSlideItem[this.slideNum].style.left = "0%";
+  changeItemActive(index: number): void {
+    this.itemActive = index;
+  }
 
-    //   if (this.slideNum + 1 > 2) {
-    //     setTimeout(() => {
-    //       this.homeSlideItem[this.slideNum + 1 - 3].style.visibility = "hidden";
-    //       this.homeSlideItem[this.slideNum + 1 - 3].style.left = "101%";
-    //     }, 100);
-    //   } else {
-    //     setTimeout(() => {
-    //       this.homeSlideItem[this.slideNum + 1].style.visibility = "hidden";
-    //       this.homeSlideItem[this.slideNum + 1].style.left = "101%";
-    //     },)
-    //   }
-    // }, 2000);
+  ngOnDestroy(): void {
+    clearInterval(this.clearInfinity);
   }
 }
