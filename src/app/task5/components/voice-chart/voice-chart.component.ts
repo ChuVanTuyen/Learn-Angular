@@ -8,16 +8,16 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 export class VoiceChartComponent implements OnInit, AfterViewInit {
   @ViewChild("ngList") private listItem!: ElementRef;
   list = [
-    { id: 0, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/CityPop.jpg" },
-    { id: 1, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/1420724053825_500.jpg" },
-    { id: 2, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/191d9a966f20e565490d7d17d73f415e.jpg" },
-    { id: 3, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/Image-from-iOS-1.jpg" },
-    { id: 4, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/Untitled.jpeg" },
-    { id: 5, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/sakikoosawa.jpg" },
-    { id: 6, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/sakikoosawa.jpg" },
-    { id: 7, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/sakikoosawa.jpg" },
-    { id: 8, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/sakikoosawa.jpg" },
-    { id: 9, name: "best friend", artist: "Kananishino", view: 1234, img: "../../../../assets/task5/sakikoosawa.jpg" },
+    { id: 0, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/CityPop.jpg" },
+    { id: 1, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/1420724053825_500.jpg" },
+    { id: 2, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/191d9a966f20e565490d7d17d73f415e.jpg" },
+    { id: 3, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/Image-from-iOS-1.jpg" },
+    { id: 4, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/Untitled.jpeg" },
+    { id: 5, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/sakikoosawa.jpg" },
+    { id: 6, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/sakikoosawa.jpg" },
+    { id: 7, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/sakikoosawa.jpg" },
+    { id: 8, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/sakikoosawa.jpg" },
+    { id: 9, name: "best friend", artist: "Kananishino", view: 1234, img: "assets/task5/sakikoosawa.jpg" },
   ];
   bigImg = '';// ảnh to
   item: any;

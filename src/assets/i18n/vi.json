@@ -1,0 +1,15 @@
+{
+    "title 1": "english",
+    "task5": {
+        "components": {
+            "Artist": "Nghệ sĩ",
+            "Featured-album": "Album nổi bật",
+            "Suggest": "Đề xuất",
+            "Latest": "Mới nhất",
+            "Popular-tag": "Thẻ phổ biến",
+            "Temrs-of-service": "Thời hạn dịch vụ",
+            "Contact": "Liên hệ",
+            "Help": "Trợ giúp"
+        }
+    }
+}

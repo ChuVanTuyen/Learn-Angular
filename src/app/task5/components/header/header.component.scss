@@ -166,6 +166,17 @@
     }
 }
 
+.language{
+    *{
+        color: var(--text-gray);
+        background-color: var(--bg-black);
+    }
+    select{
+        outline: none;
+        border: none;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .filter{
         span{

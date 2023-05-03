@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2455736991489043533" datatype="html">
+        <source>Temrs of service</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/footer/footer.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7922989125096435449" datatype="html">
+        <source>Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/footer/footer.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7911416166208830577" datatype="html">
+        <source>Help</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/footer/footer.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5398424878982689982" datatype="html">
+        <source> Filter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1073402444548042510" datatype="html">
+        <source> Send require</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6439703450475212438" datatype="html">
+        <source>Send song requests to Mazii Voice</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7105438165574696664" datatype="html">
+        <source>The song you requested will be updated on our website</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5881585175877993" datatype="html">
+        <source>Name&apos;s song</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4841239365955138060" datatype="html">
+        <source>Enter the name of the song you requested</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2715937061439291177" datatype="html">
+        <source>Name&apos;s singer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3685862269399648019" datatype="html">
+        <source>Enter the name of the singer, performing group</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4786525228482076933" datatype="html">
+        <source>Send require</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/header/header.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4980580439123922024" datatype="html">
+        <source>Artists</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/home/home.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6541573670168693740" datatype="html">
+        <source>Featured album</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/home/home.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5320136382998259826" datatype="html">
+        <source>Suggest</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/home/home.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2820031676440667416" datatype="html">
+        <source>Latest</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/home/home.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/nav/nav.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1449262873653555" datatype="html">
+        <source>Voice chat</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/nav/nav.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5239801220603867264" datatype="html">
+        <source>Favourite</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/nav/nav.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8221494968176924260" datatype="html">
+        <source>My playlist</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/nav/nav.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="186236568870281953" datatype="html">
+        <source>History</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/nav/nav.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6785659997897155974" datatype="html">
+        <source>Setting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/nav/nav.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2501489806101473286" datatype="html">
+        <source>About us</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/nav/nav.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9216748331339753514" datatype="html">
+        <source>Popular tag</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/popular-tag/popular-tag.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1602252189676871984" datatype="html">
+        <source>Voice Chart</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task5/components/voice-chart/voice-chart.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

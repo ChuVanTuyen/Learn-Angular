@@ -9,6 +9,7 @@ import { VoiceChartComponent } from './components/voice-chart/voice-chart.compon
 import { SlideComponent } from './components/slide/slide.component';
 import { PopularTagComponent } from './components/popular-tag/popular-tag.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 const task5Routes: Routes = [
   {
@@ -30,7 +31,10 @@ const task5Routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(task5Routes)
+    RouterModule.forChild(task5Routes),
+    TranslateModule.forChild({
+      extend: true
+    })
   ]
 })
 export class Task5Module { }

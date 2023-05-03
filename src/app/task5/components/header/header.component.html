@@ -23,7 +23,7 @@
             <path
               d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z" />
           </svg>&nbsp;&nbsp;
-          <span> Bộ lọc</span>
+          <span i18n> Filter</span>
         </div>
       </div>
       <div class="header-order" (click)="toggelOder(true)">
@@ -31,13 +31,23 @@
           <path
             d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM385 231c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V193.9l-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 119c9.4-9.4 24.6-9.4 33.9 0L385 231z" />
         </svg>
-        <span> Gửi yêu cầu</span>
+        <span i18n> Send require</span>
       </div>
       <div class="account">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
             d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
         </svg>
+      </div>
+      <div class="language">
+        <select name="" id="">
+          <option value="en">
+            EN
+          </option>
+          <option value="vi">
+            VI
+          </option>
+        </select>
       </div>
     </div>
   </div>
@@ -46,20 +56,20 @@
   <div class="modal-blur" (click)="toggelOder(false)"></div>
   <div class="modal-body">
     <button class="close" (click)="toggelOder(false)">&#10005;</button>
-    <h4>Gửi yêu cầu bài hát cho Mazii Voice</h4>
-    <p>Bài hát bạn yêu cầu sẽ được chúng tớ cập nhật trên trang web</p>
+    <h4 i18n>Send song requests to Mazii Voice</h4>
+    <p style="text-align: center;" i18n>The song you requested will be updated on our website</p>
     <form action="">
       <div class="form-item">
-        <label for="nameSong">Tên bài hát</label><br>
-        <input id="nameSong" type="text" placeholder="Nhập tên bài hát bạn yêu cầu">
+        <label for="nameSong" i18n>Name's song</label><br>
+        <input id="nameSong" type="text" i18n-placeholder placeholder="Enter the name of the song you requested">
       </div>
       <div class="form-item">
-        <label for="nameMusic">Tên ca sĩ</label><br>
-        <input id="nameMusic" type="text" placeholder="Nhập tên ca sĩ, nhóm trình bày">
+        <label for="nameMusic" i18n>Name's singer</label><br>
+        <input id="nameMusic" type="text" i18n-placeholder placeholder="Enter the name of the singer, performing group">
       </div>
     </form>
     <div class="submit">
-      <button class="btn header-order">Gửi yêu cầu</button>
+      <button class="btn header-order" i18n>Send require</button>
     </div>
   </div>
 </div>

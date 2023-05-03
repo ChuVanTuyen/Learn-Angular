@@ -1,0 +1,15 @@
+{
+    "title 1": "english",
+    "task5": {
+        "components": {
+            "Artist": "Artist",
+            "Featured-album": "Featured album",
+            "Suggest": "Suggest",
+            "Latest": "Latest",
+            "Popular-tag": "Popular tag",
+            "Temrs-of-service": "Temrs of service",
+            "Contact": "Contact",
+            "Help": "Help"
+        }
+    }
+}
